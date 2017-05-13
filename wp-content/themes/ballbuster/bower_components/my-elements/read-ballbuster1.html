@@ -1,0 +1,79 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="read-ballbuster1">
+
+  <style>
+
+  </style>
+
+  <template>
+
+    <random>
+      <div class="feat-video">
+          <div class="section-title">
+            <h2>Back in the day</h2>
+            <h1 style="text-shadow: black 2px 2px 2px">Doug Pinnick <span style="font-size: 19px;">(King's X)</span></h1>
+            <br>
+          </div>
+          <div class="back_in_day">
+            <center>
+              <img src="../../images/ballbuster/who_has_read_ballbuster/doug_pinnick.jpg" alt="Doug Pinnick" />
+            </center>
+          </div>
+          <div class="clear"></div>
+      </div>
+    </random>
+
+    <random>
+      <div class="feat-video">
+          <div class="section-title">
+            <h2>Back in the day</h2>
+            <h1 style="text-shadow: black 2px 2px 2px">DEEP PURPLE</h1>
+            <br>
+          </div>
+          <div class="back_in_day">
+            <center>
+              <img src="../../images/ballbuster/who_has_read_ballbuster/deep_purple.jpg" alt="Deep Purple" />
+            </center>
+          </div>
+          <div class="clear"></div>
+      </div>
+    </random>
+
+    <random>
+      <div class="feat-video">
+          <div class="section-title">
+            <h2>Back in the day</h2>
+            <h1 style="text-shadow: black 2px 2px 2px">DIO &AMP; GUS G.</h1>
+            <br>
+          </div>
+          <div class="back_in_day">
+            <center>
+              <img src="../../images/ballbuster/who_has_read_ballbuster/mini/dio.png" alt="Dio" />
+            </center>
+          </div>
+          <div class="clear"></div>
+      </div>
+    </random>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'read-ballbuster1',
+      ready: function () {
+        var elems = $("random");
+        if (elems.length) {
+          var keep = Math.floor(Math.random() * elems.length);
+          for (var i = 0; i < elems.length; ++i) {
+            if (i !== keep) {
+              $(elems[i]).hide();
+            }
+          }
+        }
+      }
+    });
+  </script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</dom-module>

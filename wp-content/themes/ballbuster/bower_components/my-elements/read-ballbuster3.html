@@ -1,0 +1,65 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="stylesheet" type="text/css" href="../../css/normalize.css">
+<link rel="stylesheet" type="text/css" href="../../css/ballbuster-styles.css">
+
+<dom-module id="read-ballbuster3">
+  
+  <template>
+    
+    <dom>
+      <div class="feat-video">
+        <paper-material>
+          <div class="section-title">
+            <h2>Back in the day</h2>
+            <h1 style="text-shadow: black 2px 2px 2px">Great White<span style="font-size: 19px;"></span></h1>
+            <br>
+          </div>
+          <div class="back_in_day">
+            <center>
+              <img src="../../images/ballbuster/who_has_read_ballbuster/mini/great_white.png" alt="Great White" />
+            </center>
+          </div>
+          <div class="clear"></div>
+        </paper-material>
+      </div>
+    </dom>
+    
+    <dom>
+      <div class="feat-video">
+        <paper-material>
+          <div class="section-title">
+            <h2>Back in the day</h2>
+            <h1 style="text-shadow: black 2px 2px 2px">Doro Pesch<span style="font-size: 19px;"></span></h1>
+            <br>
+          </div>
+          <div class="back_in_day">
+            <center>
+              <img src="../../images/ballbuster/who_has_read_ballbuster/doro_pesch.jpg" alt="Great White" />
+            </center>
+          </div>
+          <div class="clear"></div>
+        </paper-material>
+      </div>
+    </dom>
+  
+  </template>
+
+  <script>
+    Polymer({
+      is: 'read-ballbuster3',
+      ready: function () {
+        var elems = $("dom");
+        if (elems.length) {
+          var keep = Math.floor(Math.random() * elems.length);
+          for (var i = 0; i < elems.length; ++i) {
+            if (i !== keep) {
+              $(elems[i]).hide();
+            }
+          }
+        }
+      }
+    });
+  </script>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</dom-module>
