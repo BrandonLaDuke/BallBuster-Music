@@ -30,7 +30,7 @@
         	</ul>
         </nav>
       <?php else: ?>
-      <h3><?php _e('Sorry, We could not find any posts by this author.'); ?></h3>
+      <h3><?php _e('Sorry, We could not find any posts by this author. Come back later'); ?></h3>
       <?php endif; ?>
     </div>
   </div>
