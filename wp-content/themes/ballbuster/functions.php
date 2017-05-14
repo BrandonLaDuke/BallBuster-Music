@@ -135,3 +135,23 @@ function create_post_your_post() {
 	register_taxonomy_for_object_type( 'post_tag', 'your_post' );
 }
 add_action( 'init', 'create_post_your_post' );
+
+function ballbustermusic_login_logo() { ?>
+    <style type="text/css">
+        #login h1 a, .login h1 a {
+            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/images/home/BallBusterMusicHomeImageForWeb.jpg);
+						height:65px;
+						width:320px;
+						background-size: 320px 65px;
+						background-repeat: no-repeat;
+        		padding-bottom: 30px;
+        }
+    </style>
+<?php }
+add_action( 'login_enqueue_scripts', 'ballbustermusic_login_logo' );
+
+function bbm_login_stylesheet() {
+    wp_enqueue_style( 'custom-login', get_stylesheet_directory_uri() . '/css/style-login.css' );
+    wp_enqueue_script( 'custom-login', get_stylesheet_directory_uri() . '/js/style-login.js' );
+}
+add_action( 'login_enqueue_scripts', 'bbm_login_stylesheet' );
