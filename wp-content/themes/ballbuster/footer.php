@@ -7,7 +7,7 @@
                   if (yr!=1995)
                   	    document.write("- "+yr);</script> SB Communications / BallBusterMUSIC</p>
               <p>Web Development: <a href="http://brandonladuke.com">Brandon LaDuke</a></p>
-              
+
             </div>
             <div class="footer-right">
 
@@ -44,6 +44,12 @@
     <script>
       (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'en', gaTrack: true, gaId: 'UA-66276915-2'}, 'google_translate_element');
+      }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script src="<?php get_template_directory_uri() . '/js/script.js' ?>"></script>
 
   </body>

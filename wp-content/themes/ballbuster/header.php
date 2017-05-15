@@ -54,7 +54,7 @@
           <app-toolbar>
             <paper-icon-button icon="menu" drawer-toggle></paper-icon-button>
             <div title><a href="<?php bloginfo( 'wpurl' );?>"><?php echo get_bloginfo( 'name' ); ?></a><span> | <?php echo get_bloginfo( 'description' );?></span></div>
-            <div class="article-title"><?php single_post_title(); ?></div>
+            <div class="article-title" id="google_translate_element"></div>
           </app-toolbar>
         </app-header>
           <div>
