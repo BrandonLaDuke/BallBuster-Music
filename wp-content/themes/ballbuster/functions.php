@@ -139,7 +139,7 @@ add_action( 'init', 'create_post_your_post' );
 function ballbustermusic_login_logo() { ?>
     <style type="text/css">
         #login h1 a, .login h1 a {
-            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/images/home/BallBusterMusicHomeImageForWeb.jpg);
+            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/images/home/bbm_login.svg);
 						height:65px;
 						width:320px;
 						background-size: 320px 65px;

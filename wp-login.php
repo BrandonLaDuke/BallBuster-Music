@@ -158,7 +158,7 @@ function login_header( $title = 'Log In', $message = '', $wp_error = '' ) {
 	do_action( 'login_header' );
 	?>
 	<div id="login">
-		<h1><a href="<?php echo esc_url( $login_header_url ); ?>" title="<?php echo esc_attr( $login_header_title ); ?>" tabindex="-1"><?php bloginfo( 'name' ); ?></a></h1>
+		<a href="https://www.ballbustermusic.com" title="BallBusterMusic" tabindex="-1"><img src="<?php bloginfo('template_directory');?>/images/home/bbm_login.png" alt="BallBusterMusic" /></a>
 	<?php
 
 	unset( $login_header_url, $login_header_title );
