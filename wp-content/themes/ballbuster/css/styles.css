@@ -932,3 +932,57 @@ footer a {
 .feat-video .section-title {
     min-height: 170px
 }
+
+
+
+
+
+/*********************************
+  new grid layout for new posts
+*********************************/
+
+.new-grid {
+  width: 100%;
+}
+
+.new-post {
+  background-color: red;
+  margin-top: 1em;
+}
+
+.new-post-img {
+  height: 270px;
+  background-image: url(http://beta.ballbustermusic.com/wp-content/uploads/2017/01/TenReasonsWhyBrianWilson.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.new-post-des {
+  padding: 1em;
+  color: #ffffff;
+}
+
+@media screen and (min-width: 650px) {
+  .new-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 1em;
+    width: auto;
+  }
+  .new-post {
+    width: 48.5%;
+  }
+  .new-post:first-child {
+    width: 100%;
+  }
+
+@media screen and (min-width: 800px) {
+  .new-post {
+    width: 32%;
+  }
+  .new-post:first-child {
+    width: 66%;
+  }
+}
