@@ -3,7 +3,10 @@
   <img style="width:100%;" src="<?php bloginfo('template_directory');?>/images/home/BallBusterMusicHomeImage2017.jpg" alt="BallBuster Music Banner" />
   <h3 style="text-align:center; color:#fff; font-weight:100; padding:5px;">Since 1998 | Over a quarter million views in more than 70+ countries. | BallBusterMusic.com | Come Hang With Us!</h3>
 </div>
-<simple-carousel transition-style="cubic" infinite-loop="true" auto="true" transition-duration="1000" transition-time="10000">
+
+
+<!-- Carousel Layout for new posts -->
+<!-- <simple-carousel transition-style="cubic" infinite-loop="true" auto="true" transition-duration="1000" transition-time="10000">
   <?php
   if ( have_posts() ) : while ( have_posts() ) : the_post();
 
@@ -12,7 +15,35 @@
   endwhile;
   endif;
   ?>
-</simple-carousel>
+</simple-carousel> -->
+
+
+<!-- Experimental Grid layout for new posts -->
+<div class="new-grid">
+  <div class="new-post">
+    <div class="new-post-img"></div>
+    <div class="">
+      <div class="new-post-des">
+        <h1>This is the Newest post on Ballbuster 2017</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>By Brandon LaDuke</p>
+        <p>July 18, 2017</p>
+      </div>
+    </div>
+  </div>
+  <div class="new-post">
+
+  </div>
+  <div class="new-post">
+
+  </div>
+  <div class="new-post">
+
+  </div>
+</div>
+
+
+
 <style>
 .musicunderground {background-image: url(<?php bloginfo('template_directory');?>/images/home/BallBusterMusicHomeImage2017.jpg);}
 </style>
