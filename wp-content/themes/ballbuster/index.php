@@ -5,122 +5,28 @@
 </div>
 
 
-<!-- Carousel Layout for new posts -->
-<!-- <simple-carousel transition-style="cubic" infinite-loop="true" auto="true" transition-duration="1000" transition-time="10000">
-  <?php
-  if ( have_posts() ) : while ( have_posts() ) : the_post();
-
-    get_template_part( 'carousel-slide' );
-
-  endwhile;
-  endif;
-  ?>
-</simple-carousel> -->
-
-
 <!-- Experimental Grid layout for new posts -->
 <div class="new-grid">
-  <div class="new-post">
-    <div class="new-post-img"></div>
+  <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
-      <div class="new-post-des">
-        <h1>This is the Newest post on Ballbuster 2017</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p>By Brandon LaDuke</p>
-        <p>July 18, 2017</p>
-      </div>
+      <a href="<?php the_permalink(); ?>" class="new-post">
+        <div class="new-post-img">
+          <div class="new-post-img-src" style="background-image: url(<?php the_post_thumbnail_url(); ?>);"></div>
+        </div>
 
-  </div>
-  <div class="new-post">
-    <div class="new-post-img"></div>
+          <div class="new-post-des">
+            <h1><?php the_title(); ?></h1>
+            <p class="post-excert"><?php the_excerpt(); ?></p>
+            <p>By <?php the_author(); ?></p>
+            <p><?php the_date(); ?></p>
+          </div>
 
-      <div class="new-post-des">
-        <h1>This is the Newest post on Ballbuster 2017</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p>By Brandon LaDuke</p>
-        <p>July 18, 2017</p>
-      </div>
+      </a>
 
-  </div>
-  <div class="new-post">
-    <div class="new-post-img"></div>
-
-      <div class="new-post-des">
-        <h1>This is the Newest post on Ballbuster 2017</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p>By Brandon LaDuke</p>
-        <p>July 18, 2017</p>
-      </div>
-
-  </div>
-  <div class="new-post">
-    <div class="new-post-img"></div>
-
-      <div class="new-post-des">
-        <h1>This is the Newest post on Ballbuster 2017</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p>By Brandon LaDuke</p>
-        <p>July 18, 2017</p>
-      </div>
-
-  </div>
-  <div class="new-post">
-    <div class="new-post-img"></div>
-
-      <div class="new-post-des">
-        <h1>This is the Newest post on Ballbuster 2017</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p>By Brandon LaDuke</p>
-        <p>July 18, 2017</p>
-      </div>
-
-  </div>
-  <div class="new-post">
-    <div class="new-post-img"></div>
-
-      <div class="new-post-des">
-        <h1>This is the Newest post on Ballbuster 2017</h1>
-        <p class="post-excert">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p>By Brandon LaDuke</p>
-        <p>July 18, 2017</p>
-      </div>
-
-  </div>
-  <div class="new-post">
-    <div class="new-post-img"></div>
-
-      <div class="new-post-des">
-        <h1>This is the Newest post on Ballbuster 2017</h1>
-        <p class="post-excert">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p>By Brandon LaDuke</p>
-        <p>July 18, 2017</p>
-      </div>
-
-  </div>
-  <div class="new-post">
-    <div class="new-post-img"></div>
-
-      <div class="new-post-des">
-        <h1>This is the Newest post on Ballbuster 2017</h1>
-        <p class="post-excert">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p>By Brandon LaDuke</p>
-        <p>July 18, 2017</p>
-      </div>
-
-  </div>
-  <div class="new-post">
-    <div class="new-post-img"></div>
-
-      <div class="new-post-des">
-        <h1>This is the Newest post on Ballbuster 2017</h1>
-        <p class="post-excert">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p>By Brandon LaDuke</p>
-        <p>July 18, 2017</p>
-      </div>
-
-  </div>
-
-  </div>
+  <?php
+    endwhile;
+    endif;
+  ?>
 </div>
 
 
