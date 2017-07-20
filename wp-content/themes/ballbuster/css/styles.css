@@ -138,6 +138,7 @@ nav .pager li a:hover {
 .musicunderground {
     background-position: center;
     background-size: cover;
+    margin-top: 1em;
 }
 
 .musicunderground a {
@@ -961,6 +962,7 @@ footer a {
 .new-post-des {
   padding: 1em;
   color: #ffffff;
+  letter-spacing: 1px;
 }
 
 @media screen and (min-width: 650px) {
@@ -983,12 +985,19 @@ footer a {
     width: 32%;
   }
   .new-post:first-child {
-    width: 66%;
+    width: 32%;
   }
 }
 @media screen and (min-width:1150px) {
   .new-post:first-child {
+    width: 66%;
     display: flex;
+  }
+  .new-post:nth-child(6) .post-excert,
+  .new-post:nth-child(7) .post-excert,
+  .new-post:nth-child(8) .post-excert,
+  .new-post:nth-child(9) .post-excert {
+    display: none;
   }
   .new-post:first-child .new-post-img {
     flex: 1;
@@ -997,6 +1006,28 @@ footer a {
   .new-post:first-child .new-post-des {
     flex: 1;
   }
+  .new-post:first-child .new-post-des {
+    font-size: 1.2em;
+  }
+  .new-post:nth-child(6),
+  .new-post:nth-child(7),
+  .new-post:nth-child(8),
+  .new-post:nth-child(9) {
+    width: 24%;
+  }
+  .new-post:nth-child(6) .new-post-img,
+  .new-post:nth-child(7) .new-post-img,
+  .new-post:nth-child(8) .new-post-img,
+  .new-post:nth-child(9) .new-post-img {
+    height: 200px;
+  }
+  .new-post:nth-child(6) .new-post-des h1,
+  .new-post:nth-child(7) .new-post-des h1,
+  .new-post:nth-child(8) .new-post-des h1,
+  .new-post:nth-child(9) .new-post-des h1 {
+    font-size: 1.2em;
+  }
+
 }
 @media screen and (min-width: 1400px) {
   .new-grid {
