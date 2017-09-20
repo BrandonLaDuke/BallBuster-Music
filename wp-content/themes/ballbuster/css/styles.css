@@ -77,6 +77,9 @@ body {
     /* min-height:300px; */
     margin: auto 0 auto auto;
   }
+  .tSec h1 {
+    font-size: 3em;
+  }
 }
 
 
@@ -696,6 +699,7 @@ h1, h2, h3, h4, h5, h6 {
 header h1 {
     font-family: sans-serif;
     margin-bottom: 1em;
+
 }
 
 .pic {
@@ -1048,4 +1052,19 @@ footer a {
     margin: auto;
     max-width: 1400px;
   }
+}
+
+
+
+/* Video Posts */
+.embeded-video {
+  display: flex;
+}
+.embeded-video > iframe {
+  display: block;
+  width: 100vw;
+  height: calc((1080 / 1920) * 100vw);
+  margin: auto;
+  padding: 0;
+  text-align: center;
 }

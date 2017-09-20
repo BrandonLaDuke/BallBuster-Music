@@ -18,7 +18,6 @@
     <link rel="import" href="<?php bloginfo('template_directory');?>/bower_components/simple-carousel/simple-carousel.html">
     <link rel="import" href="<?php bloginfo('template_directory');?>/bower_components/paper-icon-button/paper-icon-button.html">
     <link rel="import" href="<?php bloginfo('template_directory');?>/bower_components/paper-material/paper-material.html">
-    <link rel="import" href="<?php bloginfo('template_directory');?>/bower_components/my-elements/elements.html">
     <link rel="import" href="<?php bloginfo('template_directory');?>/bower_components/iron-image/iron-image.html">
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory');?>/css/styles.css">
