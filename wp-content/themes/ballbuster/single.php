@@ -21,13 +21,9 @@ if ( has_post_format( 'video' )) {
 
 
     <div class="videoHeader">
-      <div class="videoTitle">
-        <div class="videoSec">
-          <h1><?php single_post_title(); ?></h1>
-          <h2>By &nbsp; <img class="pic" src="<?php echo get_avatar_url( get_the_author_meta( 'ID' ), 32 ); ?>" /> &nbsp; <?php the_author_posts_link(); ?></h2>
-          <h4><?php $post_date = get_the_date( 'F j, Y' ); echo $post_date ?></h4>
-        </div>
-      </div>
+      <h1><?php single_post_title(); ?></h1>
+      <h2>By &nbsp; <img class="pic" src="<?php echo get_avatar_url( get_the_author_meta( 'ID' ), 32 ); ?>" /> &nbsp; <?php the_author_posts_link(); ?></h2>
+      <h4><?php $post_date = get_the_date( 'F j, Y' ); echo $post_date ?></h4>
     </div>
   </header>
   <div class="contPad" style="background-color: #111111;

@@ -1059,6 +1059,7 @@ footer a {
 /* Video Posts */
 .embeded-video {
   display: flex;
+  background-color: #000;
 }
 .embeded-video > iframe {
   display: block;
@@ -1067,4 +1068,30 @@ footer a {
   margin: auto;
   padding: 0;
   text-align: center;
+}
+.videoHeader {
+  margin: 1em;
+}
+.videoHeader a {
+  color: gold;
+}
+.videoHeader h1 {
+  margin-bottom: 0.5em;
+}
+.videoHeader h4 {
+  margin-top: 1em;
+}
+@media (min-width: 900px) {
+  .videoHeader {
+    margin: 1.5em 60px;
+  }
+}
+@media (min-width: 1000px) {
+  .embeded-video > iframe {
+    width: 60%;
+    height: calc((1080 / 1920) * 60vw);
+  }
+  .videoHeader {
+     margin: 1.5em 120px;
+  }
 }
