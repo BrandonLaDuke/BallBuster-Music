@@ -3,16 +3,34 @@
   <img style="width:100%;" src="<?php bloginfo('template_directory');?>/images/home/BallBusterMusicHomeImage2017.jpg" alt="BallBuster Music Banner" />
   <h3 style="text-align:center; color:#fff; font-weight:100; padding:5px;">Since 1998 | Over a quarter million views in more than 70+ countries. | BallBusterMusic.com | Come Hang With Us!</h3>
 </div>
-<simple-carousel transition-style="cubic" infinite-loop="true" auto="true" transition-duration="1000" transition-time="10000">
+
+
+<!-- Experimental Grid layout for new posts -->
+<div class="new-grid">
+  <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+
+      <a href="<?php the_permalink(); ?>" class="new-post">
+        <div class="new-post-img">
+          <div class="new-post-img-src" style="background-image: url(<?php the_post_thumbnail_url(); ?>);"></div>
+        </div>
+
+          <div class="new-post-des">
+            <h1><?php the_title(); ?></h1>
+            <p class="post-excert"><?php the_excerpt(); ?></p>
+            <p>By <?php the_author(); ?></p>
+            <p><?php the_date(); ?></p>
+          </div>
+
+      </a>
+
   <?php
-  if ( have_posts() ) : while ( have_posts() ) : the_post();
-
-    get_template_part( 'carousel-slide' );
-
-  endwhile;
-  endif;
+    endwhile;
+    endif;
   ?>
-</simple-carousel>
+</div>
+
+
+
 <style>
 .musicunderground {background-image: url(<?php bloginfo('template_directory');?>/images/home/BallBusterMusicHomeImage2017.jpg);}
 </style>

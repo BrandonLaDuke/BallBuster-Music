@@ -77,6 +77,9 @@ body {
     /* min-height:300px; */
     margin: auto 0 auto auto;
   }
+  .tSec h1 {
+    font-size: 3em;
+  }
 }
 
 
@@ -138,6 +141,7 @@ nav .pager li a:hover {
 .musicunderground {
     background-position: center;
     background-size: cover;
+    margin-top: 1em;
 }
 
 .musicunderground a {
@@ -695,6 +699,7 @@ h1, h2, h3, h4, h5, h6 {
 header h1 {
     font-family: sans-serif;
     margin-bottom: 1em;
+
 }
 
 .pic {
@@ -931,4 +936,135 @@ footer a {
 
 .feat-video .section-title {
     min-height: 170px
+}
+
+
+
+
+
+/*********************************
+  new grid layout for new posts
+*********************************/
+
+.new-grid {
+  width: 100%;
+}
+.new-grid a {
+  text-decoration: none;
+}
+
+.new-post {
+  background-color: #202020;
+  margin-top: 1em;
+  text-decoration: none;
+}
+
+.new-post-img {
+  height: 270px;
+  overflow: hidden;
+}
+.new-post-img-src {
+  background-image: url(http://beta.ballbustermusic.com/wp-content/uploads/2017/01/TenReasonsWhyBrianWilson.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  transform: scale(1.0);
+  transition: ease all 500ms;
+}
+.new-post:hover .new-post-img-src{
+  transform: scale(1.1);
+}
+
+.new-post-des {
+  padding: 1em;
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+
+@media screen and (min-width: 650px) {
+  .new-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 1em;
+    width: auto;
+  }
+  .new-post {
+    width: 48.5%;
+  }
+  .new-post:first-child {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 800px) {
+  .new-post {
+    width: 32%;
+  }
+  .new-post:first-child {
+    width: 32%;
+  }
+}
+@media screen and (min-width:1150px) {
+  .new-post:first-child {
+    width: 66%;
+    display: flex;
+  }
+  .new-post:nth-child(6) .post-excert,
+  .new-post:nth-child(7) .post-excert,
+  .new-post:nth-child(8) .post-excert,
+  .new-post:nth-child(9) .post-excert {
+    display: none;
+  }
+  .new-post:first-child .new-post-img {
+    flex: 1;
+    width: auto; height: auto;
+  }
+  .new-post:first-child .new-post-des {
+    flex: 1;
+  }
+  .new-post:first-child .new-post-des {
+    font-size: 1.2em;
+  }
+  .new-post:nth-child(6),
+  .new-post:nth-child(7),
+  .new-post:nth-child(8),
+  .new-post:nth-child(9) {
+    width: 24%;
+  }
+  .new-post:nth-child(6) .new-post-img,
+  .new-post:nth-child(7) .new-post-img,
+  .new-post:nth-child(8) .new-post-img,
+  .new-post:nth-child(9) .new-post-img {
+    height: 200px;
+  }
+  .new-post:nth-child(6) .new-post-des h1,
+  .new-post:nth-child(7) .new-post-des h1,
+  .new-post:nth-child(8) .new-post-des h1,
+  .new-post:nth-child(9) .new-post-des h1 {
+    font-size: 1.2em;
+  }
+
+}
+@media screen and (min-width: 1400px) {
+  .new-grid {
+    margin: auto;
+    max-width: 1400px;
+  }
+}
+
+
+
+/* Video Posts */
+.embeded-video {
+  display: flex;
+}
+.embeded-video > iframe {
+  display: block;
+  width: 100vw;
+  height: calc((1080 / 1920) * 100vw);
+  margin: auto;
+  padding: 0;
+  text-align: center;
 }
