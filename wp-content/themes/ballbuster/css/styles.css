@@ -321,7 +321,6 @@ simple-carousel carousel-slide {
     letter-spacing: 2px;
     color: yellow;
     text-shadow: black 2px 2px 2px;
-    background-color: red;
     text-align: center;
     font-size: 1.7em;
     padding: 20px;
@@ -450,61 +449,13 @@ simple-carousel carousel-slide {
     background-position: center;
     background-size: cover;
 }
-@media screen and (max-width:800px) {
-    #bITDay h1 {
-        color: var(--main-color);
-        text-align:center;
-        margin:20px;
-    }
-    #bITDay h2 {
-        color: var(--main-text-color);
-        text-align:center;
-        margin-bottom:20px;
-    }
-    #bITDay img {
-        width:100%;
-    }
+@media (max-width:800px) {
+
     app-toolbar > .article-title {
       display: none;
     }
 }
-@media screen and (min-width:801px) {
-    #bITDay {
-        display:flex;
-        margin: 15px auto;
-        max-width:1300px;
-    }
-    #bITDay .title {
-        display:flex;
-        flex-direction:column;
-        align-items: center;
-        align-content: center;
-        margin: auto;
-    }
-    #bITDay h1 {
-        color: var(--main-color);
-        text-align:center;
-        margin:20px;
-    }
-    #bITDay h2 {
-        color: var(--main-text-color);
-        text-align:center;
-        margin-bottom:20px;
-    }
-    #bITDay img {
-        /* width: auto; */
-    }
 
-
-}
-@media screen and (min-width: 1000px) {
-  #bITDay h1 {
-      font-size: 2.5em;
-  }
-  #bITDay h2 {
-      font-size: 2.3em;
-  }
-}
 @media screen and (min-width: 600px) {
     .pFlex {
         display:flex;
@@ -751,18 +702,34 @@ header h1 {
 .relatedtext {
     padding: 10px;
 }
+.blog-post img {
+  width: 100%;
+}
+.wp-caption {
+  position: relative;
+  overflow: hidden;
+}
+.wp-caption-text {
+  background-color: rgba(255, 0, 0, 0.8);
+  margin: 0;
+  position: absolute;
+  width: 100%;
+  padding: 1em;
+  bottom: 7px;
+  font-size: 0.85em;
+}
 
 @media screen and (min-width: 600px) {
     .blog-post .alignleft {
-        width:50%;
+        width: 50%;
         float: left;
-        padding: 0 20px 20px 0;
+        margin: 0 20px 20px 0;
     }
 
     .blog-post .alignright {
         width: 50%;
         float: right;
-        padding: 0 0 20px 20px;
+        margin: 0 0 20px 20px;
     }
 
     /* category styles */
@@ -1093,5 +1060,71 @@ footer a {
   }
   .videoHeader {
      margin: 1.5em 120px;
+  }
+}
+
+/* Back in the Day  */
+
+.classicArchives {
+  background-image: linear-gradient(transparent, #ff2222);
+}
+.cAHeader {
+  margin: 1em 0 0.8em 0;
+}
+.back_in_day {
+  background-color: #ff2222;
+}
+.counter {
+  background-image: linear-gradient(#ff2222, black);
+}
+.counter p {
+  margin: 0;
+  padding: 10px;
+}
+.back_in_day h1 {
+  font-family: 'Lobster', serif;
+  color: #ffff00;
+  text-shadow: 2px 2px 2px black;
+  margin-bottom: 1em;
+}
+.tb-image-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-gap: 1em;
+}
+.tb-image-grid div {
+  overflow: hidden;
+}
+.tb-image-grid img {
+  width: 100%;
+}
+.tb-image-grid h2 {
+  position: absolute;
+  margin-top: -2.17em;
+  color: #fff;
+  padding: 10px;
+  background-color: rgba(255, 0, 0, .5);
+  width: calc(100% - 3.5em);
+}
+
+@media (min-width: 600px) {
+  .tb-image-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .tb-image-grid h2 {
+    width: calc(50% - 2.5em);
+  }
+}
+@media (min-width: 1000px) {
+  .back_in_day {
+
+    margin: auto;
+  }
+  .tb-image-grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  .tb-image-grid h2 {
+    width: calc(25% - 2.0em);
   }
 }

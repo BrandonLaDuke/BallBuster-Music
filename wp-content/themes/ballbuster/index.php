@@ -75,7 +75,28 @@
 </div>
 
 <div class="back_in_day">
-  <div class="half-and-half" bg-color="glass">
+  <h1>Look who's read BallBuster!</h1>
+  <div class="tb-image-grid">
+    <div>
+      <img src="<?php bloginfo('template_directory');?>/images/who_has_read_ballbuster/deep_purple.jpg" alt="" title="Steve Moorse">
+      <h2>Steve Moorse</h2>
+    </div>
+    <div>
+      <img src="<?php bloginfo('template_directory');?>/images/who_has_read_ballbuster/bruce_dickinson.jpg" alt="" title="Steve Moorse">
+      <h2>Bruce Dickinson</h2>
+    </div>
+    <div>
+      <img src="<?php bloginfo('template_directory');?>/images/who_has_read_ballbuster/doug_pinnick.jpg" alt="" title="Doug Pinnick">
+      <h2>Doug Pinnick <span>(King's X)</span></h2>
+    </div>
+    <div>
+      <img src="<?php bloginfo('template_directory');?>/images/who_has_read_ballbuster/deep_purple.jpg" alt="" title="Steve Moorse">
+      <h2>Steve Moorse</h2>
+    </div>
+  </div>
+
+
+  <!-- <div class="half-and-half" bg-color="glass">
     <div class="half bid-text">
       <h3>Back in the day</h3>
       <h1>DEEP PURPLE</h1>
@@ -92,7 +113,7 @@
       <h3>Back in the day</h3>
       <h1>Steve Moorse</h1>
     </div>
-  </div>
+  </div> -->
 </div>
 
 <!-- Post highlights and Back in the day still needed to be added. -->
@@ -103,11 +124,12 @@
     <p>You are visitor #</p>
     <img alt="counter" src="cgi-sys/Count.cgi?df=ballbust.dat|display=Counter|ft=0|md=6|frgb=100;139;216|dd=C">
   </center>
+  <br><br>
+  <h3 style="text-align:center; color:#fff;">Stay tuned for Archives and new feature updates, MUCH MORE TO COME!!!</h3>
+  <br><br>
 </div>
 
-<br><br>
-<h3 style="text-align:center; color:#fff;">Stay tuned for Archives and new feature updates, MUCH MORE TO COME!!!</h3>
-<br><br>
+
 
 
 <?php get_footer(); ?>

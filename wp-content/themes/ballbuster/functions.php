@@ -32,7 +32,7 @@ function custom_settings_page() { ?>
     <h1>Custom Settings</h1>
     <form method="post" action="options.php">
        <?php
-           settings_fields( 'section' );
+           settings_fields( 'social-section', 'mu-section' );
            do_settings_sections( 'theme-options' );
            submit_button();
        ?>
@@ -40,16 +40,29 @@ function custom_settings_page() { ?>
   </div>
 <?php }
 
-// Twitter
+// Social Media URLs
 function setting_twitter() { ?>
   <input type="text" name="twitter" id="twitter" value="<?php echo get_option( 'twitter' ); ?>" />
 <?php }
 
-function custom_settings_page_setup() {
-  add_settings_section( 'section', 'All Settings', null, 'theme-options' );
-  add_settings_field( 'twitter', 'Twitter URL', 'setting_twitter', 'theme-options', 'section' );
+function setting_facebook() { ?>
+  <input type="text" name="facebook" id="facebook" value="<?php echo get_option( 'facebook' ); ?>" />
+<?php }
 
-  register_setting('section', 'twitter');
+// Music Underground
+function mu_image() { ?>
+  <input type="text" name="mu-image" id="mu-image" value="<?php echo get_option( 'mu-image' ); ?>" />
+<?php }
+
+function custom_settings_page_setup() {
+  add_settings_section( 'social-section', 'Social Media Networks', null, 'theme-options' );
+  add_settings_field( 'facebook', 'Facebook URL', 'setting_facebook', 'theme-options', 'social-section' );
+  add_settings_field( 'twitter', 'Twitter URL', 'setting_twitter', 'theme-options', 'social-section' );
+
+  add_settings_section( 'mu-section', 'Music Underground', null, 'theme-options' );
+  add_settings_field( 'mu-image', 'Music Underground Image URL', 'mu_image', 'theme-options', 'mu-section');
+
+  register_setting('social-section', 'facebook', 'twitter', 'mu-section');
 }
 add_action( 'admin_init', 'custom_settings_page_setup' );
 
