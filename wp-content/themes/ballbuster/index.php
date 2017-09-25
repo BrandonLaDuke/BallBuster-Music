@@ -16,7 +16,9 @@
 
           <div class="new-post-des">
             <h1><?php the_title(); ?></h1>
-            <p class="post-excert"><?php the_excerpt(); ?></p>
+            <div class="post-excert">
+              <p class=""><?php the_excerpt(); ?></p>
+            </div>
             <p>By <?php the_author(); ?></p>
             <p><?php the_date(); ?></p>
           </div>
@@ -74,24 +76,44 @@
   </div>
 </div>
 
+<div class="babes">
+  <h1>Bonafied Ball-Buster Babes that Rock!!</h1>
+  <div class="babes-grid">
+    <a style="background-image: url(http://babes.ballbustermusic.com/wp-content/uploads/2017/09/Jessica3.jpg);" class="babe1" href="http://babes.ballbustermusic.com/jessica-pruitt/">
+      <h3>Jessica Pruitt</h3>
+    </a>
+    <a style="background-image: url(http://babes.ballbustermusic.com/wp-content/uploads/2017/09/courtney2.jpg);" class="babe2" href="http://babes.ballbustermusic.com/courtney-eller/">
+      <h3>Courtney Eller</h3>
+    </a>
+    <a style="background-image: url(http://babes.ballbustermusic.com/wp-content/uploads/2017/09/Candy2-768x768.jpg);" class="babe3" href="http://babes.ballbustermusic.com/candy-mefferd/">
+      <h3>Candy Mefferd</h3>
+    </a>
+  </div>
+  <div class="babes-more">
+    <a href="http://babes.ballbustermusic.com" class="babes-btn">
+      See more BallBuster Babes!
+    </a>
+  </div>
+</div>
+
 <div class="back_in_day">
   <h1>Look who's read BallBuster!</h1>
   <div class="tb-image-grid">
     <div>
-      <img src="<?php bloginfo('template_directory');?>/images/who_has_read_ballbuster/deep_purple.jpg" alt="" title="Steve Moorse">
+      <img src="<?php bloginfo('template_directory');?>/images/who_has_read_ballbuster/deep_purple.jpg" alt="Steve Moorse" title="Steve Moorse">
       <h2>Steve Moorse</h2>
     </div>
     <div>
-      <img src="<?php bloginfo('template_directory');?>/images/who_has_read_ballbuster/bruce_dickinson.jpg" alt="" title="Steve Moorse">
+      <img src="<?php bloginfo('template_directory');?>/images/who_has_read_ballbuster/bruce_dickinson.jpg" alt="Bruce Dickinson" title="Bruce Dickinson">
       <h2>Bruce Dickinson</h2>
     </div>
     <div>
-      <img src="<?php bloginfo('template_directory');?>/images/who_has_read_ballbuster/doug_pinnick.jpg" alt="" title="Doug Pinnick">
-      <h2>Doug Pinnick <span>(King's X)</span></h2>
+      <img src="<?php bloginfo('template_directory');?>/images/who_has_read_ballbuster/doug_pinnick.jpg" alt="Doug Pinnick" title="Doug Pinnick">
+      <h2>Doug Pinnick</h2>
     </div>
     <div>
-      <img src="<?php bloginfo('template_directory');?>/images/who_has_read_ballbuster/deep_purple.jpg" alt="" title="Steve Moorse">
-      <h2>Steve Moorse</h2>
+      <img src="<?php bloginfo('template_directory');?>/images/who_has_read_ballbuster/dio.jpg" alt="Dio" title="Dio">
+      <h2>Dio</h2>
     </div>
   </div>
 

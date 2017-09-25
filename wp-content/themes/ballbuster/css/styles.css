@@ -950,6 +950,7 @@ footer a {
   letter-spacing: 1px;
 }
 
+
 @media screen and (min-width: 650px) {
   .new-grid {
     display: flex;
@@ -977,12 +978,6 @@ footer a {
   .new-post:first-child {
     width: 66%;
     display: flex;
-  }
-  .new-post:nth-child(6) .post-excert,
-  .new-post:nth-child(7) .post-excert,
-  .new-post:nth-child(8) .post-excert,
-  .new-post:nth-child(9) .post-excert {
-    display: none;
   }
   .new-post:first-child .new-post-img {
     flex: 1;
@@ -1074,6 +1069,84 @@ footer a {
 .back_in_day {
   background-color: #ff2222;
 }
+
+
+/* BallBuster Babes */
+.babes h1 {
+  background-image: linear-gradient(#ff2222, #7d007a);
+  color: #fff;
+  text-shadow: 3px 3px 2px black;
+  padding: 1.5em 0 1em 0;
+  text-align: center;
+}
+.babes-grid {
+  background-color: #7d007a;
+}
+.babes-grid a {
+  display: block;
+  position: relative;
+  width: 90%;
+  height: 200px;
+  padding-top: 1em;
+  margin: 0 auto 1em auto;
+  background-repeat: no-repeat;
+  background-size: 105%;
+  background-position: center;
+  transition: ease all 500ms;
+}
+.babes-grid a:last-child {
+  margin-bottom: 0;
+}
+.babes-grid a:hover {
+  background-size: 115%;
+}
+.babes-grid a h3 {
+  position: absolute;
+  bottom: 0;
+  font-size: 1.35em;
+  padding: 10px;
+  background-color: rgba(128,0,128,0.5);
+  color: #fff;
+  display: block;
+  width: calc(100% - 5%);
+}
+.babes-more {
+  background-image: linear-gradient(#7d007a, #ff2222);
+  color: #fff;
+  padding: 1.5em 0 1em 0;
+  text-align: center;
+}
+.babes-btn {
+  background-color: purple;
+  color: #fff;
+  border-radius: 15px;
+  display:inline-block;
+  font-size: 1.2em;
+  padding: 1em;
+  text-decoration: none;
+  transition: ease all 500ms;
+}
+.babes-btn:hover {
+  background-color: firebrick;
+}
+@media (min-width:800px) {
+  .babes {
+    background-color: #7d007a;
+  }
+  .babes-grid {
+    display: flex;
+    max-width: 1300px;
+    margin: auto;
+    background-color:
+  }
+  .babes-grid a {
+    flex: 1;
+    height: 400px;
+    margin: 1em;
+  }
+}
+
+
 .counter {
   background-image: linear-gradient(#ff2222, black);
 }
@@ -1104,7 +1177,7 @@ footer a {
   margin-top: -2.17em;
   color: #fff;
   padding: 10px;
-  background-color: rgba(255, 0, 0, .5);
+  background-color: rgba(0, 0, 0, .5);
   width: calc(100% - 3.5em);
 }
 
@@ -1118,7 +1191,6 @@ footer a {
 }
 @media (min-width: 1000px) {
   .back_in_day {
-
     margin: auto;
   }
   .tb-image-grid {
@@ -1127,4 +1199,11 @@ footer a {
   .tb-image-grid h2 {
     width: calc(25% - 2.0em);
   }
+
+}
+.new-post:nth-child(6) .new-post-des .post-excert,
+.new-post:nth-child(7) .new-post-des .post-excert,
+.new-post:nth-child(8) .new-post-des .post-excert,
+.new-post:nth-child(9) .new-post-des .post-excert {
+  display: none;
 }
