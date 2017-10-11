@@ -30,7 +30,7 @@
     static $count = 0;
     if ($count == "15") { break; }
       else { ?>
-        <div class="slide fade standard-slide-with-link">
+        <div class="slide fade standard-slide-with-link" style="background-image:url(<?php the_post_thumbnail_url(); ?>);">
           <div class="slide-container">
             <h1><?php the_title(); ?></h1>
             <h5><?php the_author(); ?></h5>
@@ -52,4 +52,5 @@
 
 </div>
 <script src="<?php bloginfo('template_directory');?>/js/carousel.js" charset="utf-8"></script>
+
 <?php get_footer(); ?>

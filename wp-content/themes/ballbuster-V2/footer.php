@@ -1,5 +1,6 @@
 
 
-    <script src="<?php get_template_directory_uri() . '/js/script.js' ?>"></script>
+    <script src="<?php bloginfo('template_directory');?>/js/script.js"></script>
+    <p>hello</p>
   </body>
 </html>
