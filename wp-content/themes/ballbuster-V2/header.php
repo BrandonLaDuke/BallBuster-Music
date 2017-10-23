@@ -47,16 +47,15 @@
         </div>
         <div class="nav-item-row">
           <div class="nav-items-row">
-            <a id="nav1" href="#">Home</a>
-            <a id="nav2" href="#">Pigshit</a>
-            <a id="nav3" href="#">Hard Talk</a>
-            <a id="nav4" href="#">Hard Vision</a>
-            <a id="nav5" href="#">Audio Agression</a>
-            <a id="nav6" href="#">BallBuster Babes</a>
-            <a id="nav7" href="#">Guitarist 2 Guitarist</a>
-            <a id="nav8" href="#">Hard Features</a>
-            <a id="nav9" href="#">Music Underground</a>
-            <a id="nav10" href="#">Metal to the Core!</a>
+            <a id="nav1" href="#"><p>Pigshit</p></a>
+            <a id="nav2" href="#"><p>Hard Talk</p></a>
+            <a id="nav3" href="#"><p>Hard Vision</p></a>
+            <a id="nav4" href="#"><p>Audio Agression</p></a>
+            <a id="nav5" href="#"><p>BallBuster Babes</p></a>
+            <a id="nav6" href="#"><p>Guitarist 2 Guitarist</p></a>
+            <a id="nav7" href="#"><p>Hard Features</p></a>
+            <a id="nav8" href="#"><p>Music Underground</p></a>
+            <a id="nav9" href="#"><p>Metal to the Core!</p></a>
           </div>
           <div class="nav-translate-row">
             <div id="google_translate_element"></div><script type="text/javascript">
