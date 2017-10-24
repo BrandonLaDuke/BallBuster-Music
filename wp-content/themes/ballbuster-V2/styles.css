@@ -368,6 +368,11 @@ body {
     margin: auto;
   }
 }
+@media (max-width:1000px) {
+  .nav-item-row {
+    display: none;
+  }
+}
 
 
 
@@ -598,6 +603,86 @@ body {
   .grid-section:nth-child(3n+3) {
     margin-right: 10px;
   }
+}
+
+
+
+
+
+/* Post Page: Default ****************/
+
+/* Post Page: Header ****************/
+.bkg-img {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: blur(70px);
+  background-size: cover;
+  background-position: center;
+  z-index: -5;
+}
+.postHeader {
+  width: inherit;
+  position: relative;
+  height: 100vh;
+  perspective: 200px;
+}
+.postHeader .postPhoto {
+  width: 100%;
+  height: 100vw;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.postHeader .title {
+  position: absolute;
+  top: 50%;
+  background-color: black;
+  width: 260px;
+  padding: 0.5em;
+  transform: rotateX(0deg) rotateY(10deg);
+  transform-origin: left center;
+  z-index: 100;
+  margin-left: 5px;
+}
+.postHeader .title h1 {
+  color: #ffffff;
+  font-size: 1.3em;
+}
+.postHeader .title h2 {
+  color: #ffffff;
+  font-size: 1em;
+}
+.postHeader .title h2 a {
+  color: gold;
+  text-decoration: none;
+}
+.postHeader .title h2 img {
+  width: 25px;
+  border-radius: 50%;
+}
+.postHeader .title h2 a:hover {
+  text-decoration: underline;
+}
+.postHeader .title h4 {
+  display: none;
+}
+
+/* Post Page: article content ****************/
+.contPad {
+  background: transparent;
+  width: inherit;
+  height: inherit;
+}
+.mobileAd-container {
+  width: auto; height: 120px;
+}
+.mobileAd {
+  width: 320px; height: 100px;
+  margin: auto;
 }
 
 

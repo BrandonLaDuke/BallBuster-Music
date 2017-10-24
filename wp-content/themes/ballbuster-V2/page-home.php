@@ -42,7 +42,7 @@
                 <h1><?php the_title(); ?></h1>
                 <h5><?php the_author(); ?></h5>
                 <p><?php the_excerpt(); ?></p>
-                <a class="btn btn-raised btn-clear" href="#">Read</a>
+                <a class="btn btn-raised btn-clear" href="<?php the_permalink(); ?>">Read</a>
               </div>
 
           </div>
