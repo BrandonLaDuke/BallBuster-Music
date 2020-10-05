@@ -2,16 +2,15 @@
 
 <html lang="en">
   <head>
-    <!-- Global Site Tag (gtag.js) - Google Analytics -->
-    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-106803380-2"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-66276915-2"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments)};
+      function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'UA-106803380-2');
-    </script> -->
-
+      gtag('config', 'UA-66276915-2');
+    </script>
 
 
     <meta charset="utf-8">
@@ -52,6 +51,9 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
     <?php wp_head();?>
   </head>
   <body>

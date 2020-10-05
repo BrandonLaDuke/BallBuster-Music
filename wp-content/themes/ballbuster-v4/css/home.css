@@ -1,0 +1,264 @@
+@media (min-width:800px) {
+  .header-logo-container {
+    height: 350px;
+  }
+  .header-logo-container a {
+    width: 850px;
+    margin: auto;
+  }
+  .header-logo-container a img {
+    width: 100%;
+  }
+
+  #categoryLists {
+    margin-top: 1em;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 2% 46.5% 46.5% 2%;
+    grid-template-rows: auto;
+    grid-template-areas: ". list-1 list-2 ."
+                         ". list-3 list-4 ."
+                         ". list-5 list-6 ."
+                         ". list-7 list-8 ."
+                         ". list-9 list-10 ."
+                         ". list-11 list-12 .";
+    grid-column-gap: 1%;
+    grid-row-gap: 1em;
+  }
+  #categoryLists .title {
+    font-size: inherit;
+    text-align: left;
+  }
+}
+@media (min-width:1145px) {
+  #categoryLists {
+    grid-template-columns: 2% 30.6% 30.6% 30.6% 2%;
+    grid-template-areas: ". list-1 list-2 list-3 ."
+                         ". list-4 list-5 list-6 ."
+                         ". list-7 list-8 list-9 ."
+                         ". list-10 list-11 list-12 .";
+                         max-width: 1500px;
+                         margin: 1em auto;
+  }
+}
+@media (min-width:1500px) {
+  .s-container {
+    height: calc((1080 / 1920) * 850px);
+  }
+  .carousel-open:checked + .carousel-item {
+      height: calc((1080 / 1920) * 850px);
+  }
+}
+.list-1 {
+  grid-area: list-1;
+  border-radius: 10px;
+  background-color: #333;
+  padding-bottom: 1em;
+}
+.list-2 {
+  grid-area: list-2;
+  border-radius: 10px;
+  background-color: #333;
+  padding-bottom: 1em;
+}
+.list-3 {
+  grid-area: list-3;
+  border-radius: 10px;
+  background-color: #333;
+  padding-bottom: 1em;
+}
+.list-4 {
+  grid-area: list-4;
+  border-radius: 10px;
+  background-color: #333;
+  padding-bottom: 1em;
+}
+.list-5 {
+  grid-area: list-5;
+  border-radius: 10px;
+  background-color: #333;
+  padding-bottom: 1em;
+}
+.list-6 {
+  grid-area: list-6;
+  border-radius: 10px;
+  background-color: #333;
+  padding-bottom: 1em;
+}
+.list-7 {
+  grid-area: list-7;
+  border-radius: 10px;
+  background-color: #333;
+  padding-bottom: 1em;
+}
+.list-8 {
+  grid-area: list-8;
+  border-radius: 10px;
+  background-color: #333;
+  padding-bottom: 1em;
+}
+.list-9 {
+  grid-area: list-9;
+  border-radius: 10px;
+  background-color: #333;
+  padding-bottom: 1em;
+}
+.list-10 {
+  grid-area: list-10;
+  border-radius: 10px;
+  background-color: #333;
+  padding-bottom: 1em;
+}
+.list-11 {
+  grid-area: list-11;
+  border-radius: 10px;
+  background-color: #333;
+  padding-bottom: 1em;
+}
+.list-12 {
+  grid-area: list-12;
+  border-radius: 10px;
+  background-color: #333;
+  padding-bottom: 1em;
+}
+
+.box-2 {
+  grid-area: box-2;
+  border-radius: 10px;
+  background-color: #333;
+}
+@media (max-width:799px) {
+  .box-2 {
+    margin-top: 1em;
+    padding-bottom: 1em;
+  }
+}
+
+.box-2 h2 {
+  color: var(--text-color);
+  margin: 5px 0 0 15px;
+}
+.box-2 .title {
+  font-size: inherit;
+  text-align: left;
+}
+.box-3 {
+  grid-area: box-3;
+}
+.box-4 {
+  grid-area: box-4;
+}
+.box-5  {
+  grid-area: box-5;
+}
+.box-6 {
+  grid-area: box-6;
+}
+#categoryLists div {
+  margin-top: 1em;
+}
+#categoryLists h2 {
+  color: var(--text-color);
+  padding: 15px 0 0 15px;
+  margin: 0
+}
+#newAndTopPosts h2 {
+  padding: 15px 0 0 15px;
+  margin: 0;
+}
+.announcements {
+  color: #fff;
+  padding: 15px 1em;
+}
+.announcements h1 {
+  font-size: 2em;
+  text-align: center;
+  margin: 0;
+}
+#announcementText h1 {
+  text-align: left;
+}
+#announcementText h2 {
+  text-align: left;
+  margin-left: 0;
+}
+@media (min-width:800px) {
+  .announcements h1 {
+    text-align: left;
+  }
+}
+
+
+/* Back in the day */
+
+#section-3 {
+  margin-top: 1em;
+  width: auto;
+}
+#section-4 {
+  width: auto;
+}
+.bitd-overlay {
+  width: 100%;
+}
+.bitd-overlay .title {
+  position: relative;
+  bottom: 0;
+}
+.bitd-right div, .bitd div, .bitd, .bitd-right {
+  width: 100%; height: 400px;
+  background-size: cover;
+  background-position: center;
+}
+@media (min-width:800px) {
+  #section-3, #section-4 {
+    height: 400px;
+  }
+  .bitd {
+    position: absolute;
+    width: 100%;
+    height: 400px;
+    z-index: 5;
+  }
+  .bitd-right {
+    position: absolute;
+    width: 100%;
+    height: 400px;
+    z-index: 5;
+  }
+  .bitd div {
+    background-size: cover;
+    background-position: center;
+    width:40%; height: 400px;
+  }
+  .bitd-overlay {
+    z-index: 10;
+    position: absolute;
+    height: 400px;
+    display: flex;
+    text-align: center;
+    left: 20%;
+    width: 100%;
+    background-image: linear-gradient(to right, transparent, black 20%)
+  }
+  .bitd-right div {
+    background-size: cover;
+    background-position: center;
+    width:40%; height: 400px;
+    right: 0;
+    margin-left: 60%;
+  }
+  .bitd-overlay-right {
+    z-index: 10;
+    position: absolute;
+    height: 400px;
+    display: flex;
+    text-align: center;
+    right: 20%;
+    width: 100%;
+    background-image: linear-gradient(to left, transparent, darkred 20%)
+  }
+  .title {
+    max-width: 600px;
+  }
+}

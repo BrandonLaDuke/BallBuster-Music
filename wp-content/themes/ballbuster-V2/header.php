@@ -11,6 +11,14 @@
     <?php wp_head();?>
   </head>
   <body fullbleed>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.1&appId=255026351810383&autoLogAppEvents=1';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
     <header>
       <div id="navigation" class="drawer">
         <div class="logo-menu">
@@ -23,8 +31,8 @@
           <a onclick="closeDrawer()" id="closeDrawerIcon">
             <img src="<?php bloginfo('template_directory');?>/icons/ic_close.svg" alt="">
           </a>
-          <a id="nav1" href="#">Home</a>
-          <a id="nav2" href="#">Pigshit</a>
+          <a id="nav1" href="<?php bloginfo( 'wpurl' );?>">Home</a>
+          <a id="nav2" href="<?php bloginfo( 'wpurl' );?>/category/pigshit">Pigshit</a>
           <a id="nav3" href="#">Hard Talk</a>
           <a id="nav4" href="#">Hard Vision</a>
           <a id="nav5" href="#">Audio Agression</a>
@@ -34,37 +42,12 @@
           <a id="nav9" href="#">Music Underground</a>
           <a id="nav10" href="#">Metal to the Core!</a>
           <div class="nav-social">
-            <a href="" class="nav-facebook">
+            <a href="https://www.facebook.com/BallBusterMusic/" class="nav-facebook">
               <img src="<?php bloginfo('template_directory');?>/icons/facebook.svg" alt="Facebook">
             </a>
-            <a href="" class="nav-twitter">
+            <a href="https://twitter.com/BallBusterMusic/" class="nav-twitter">
               <img src="<?php bloginfo('template_directory');?>/icons/twitter.svg" alt="">
             </a>
-            <a href="" class="nav-googleplus">
-              <img src="<?php bloginfo('template_directory');?>/icons/googleplus.svg" alt="">
-            </a>
-          </div>
-        </div>
-        <div class="nav-item-row">
-          <div class="nav-items-row">
-            <a id="nav1" href="#"><p>Pigshit</p></a>
-            <a id="nav2" href="#"><p>Hard Talk</p></a>
-            <a id="nav3" href="#"><p>Hard Vision</p></a>
-            <a id="nav4" href="#"><p>Audio Agression</p></a>
-            <a id="nav5" href="#"><p>BallBuster Babes</p></a>
-            <a id="nav6" href="#"><p>Guitarist 2 Guitarist</p></a>
-            <a id="nav7" href="#"><p>Hard Features</p></a>
-            <a id="nav8" href="#"><p>Music Underground</p></a>
-            <a id="nav9" href="#"><p>Metal to the Core!</p></a>
-          </div>
-          <div class="nav-translate-row">
-            <div id="google_translate_element"></div><script type="text/javascript">
-            function googleTranslateElementInit() {
-              new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-            }
-            </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-
           </div>
         </div>
       </div>

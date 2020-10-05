@@ -1,7 +1,9 @@
 <?php get_header(); ?>
 
 <img id="banner-image" src="<?php the_field('banner_image'); ?>" alt="" />
-
+<div style="text-align:center; padding:5px auto 15px auto; font-size: 1.3em;">
+  <p>Since 1998 | Over a quarter million views in more than 70+ countries. | BallBusterMusic.com | Come Hang With Us!</p>
+</div>
 <div class="carousel">
   <div class="dots">
     <span class="dot" onclick="currentSlide(1)"></span>
@@ -83,6 +85,8 @@
 <?php endif; ?>
 </div>
 
+
+<!-- New Posts for specific areas -->
 <div class="row">
   <div class="grid">
     <div class="grid-section">
@@ -98,12 +102,12 @@
         else { ?>
 
           <!-- Template -->
-          <div class="card">
+          <a href="<?php the_permalink(); ?>" class="card">
             <div class="thumbnail" style="background-image:url(<?php the_post_thumbnail_url(); ?>)">
 
             </div>
             <h3><?php the_title(); ?></h3>
-          </div>
+          </a>
           <!-- End Template -->
 
           <?php $count++; } ?>
@@ -125,12 +129,12 @@
         else { ?>
 
           <!-- Template -->
-          <div class="card">
+          <a href="<?php the_permalink(); ?>" class="card">
             <div class="thumbnail" style="background-image:url(<?php the_post_thumbnail_url(); ?>)">
 
             </div>
             <h3><?php the_title(); ?></h3>
-          </div>
+          </a>
           <!-- End Template -->
 
           <?php $count++; } ?>
@@ -152,12 +156,12 @@
         else { ?>
 
           <!-- Template -->
-          <div class="card">
+          <a href="<?php the_permalink(); ?>" class="card">
             <div class="thumbnail" style="background-image:url(<?php the_post_thumbnail_url(); ?>)">
 
             </div>
             <h3><?php the_title(); ?></h3>
-          </div>
+          </a>
           <!-- End Template -->
 
           <?php $count++; } ?>
@@ -179,12 +183,12 @@
         else { ?>
 
           <!-- Template -->
-          <div class="card">
+          <a href="<?php the_permalink(); ?>" class="card">
             <div class="thumbnail" style="background-image:url(<?php the_post_thumbnail_url(); ?>)">
 
             </div>
             <h3><?php the_title(); ?></h3>
-          </div>
+          </a>
           <!-- End Template -->
 
           <?php $count++; } ?>
@@ -206,12 +210,12 @@
         else { ?>
 
           <!-- Template -->
-          <div class="card">
+          <a href="<?php the_permalink(); ?>" class="card">
             <div class="thumbnail" style="background-image:url(<?php the_post_thumbnail_url(); ?>)">
 
             </div>
             <h3><?php the_title(); ?></h3>
-          </div>
+          </a>
           <!-- End Template -->
 
           <?php $count++; } ?>
@@ -233,12 +237,12 @@
         else { ?>
 
           <!-- Template -->
-          <div class="card">
+          <a href="<?php the_permalink(); ?>" class="card">
             <div class="thumbnail" style="background-image:url(<?php the_post_thumbnail_url(); ?>)">
 
             </div>
             <h3><?php the_title(); ?></h3>
-          </div>
+          </a>
           <!-- End Template -->
 
           <?php $count++; } ?>
@@ -247,7 +251,6 @@
       <?php endif; ?>
       <a class="btn btn-clear btn-wide" href="#">View more</a>
     </div>
-
     <div class="grid-section">
       <h2>Metal to the Core!</h2>
       <?php
@@ -261,12 +264,12 @@
         else { ?>
 
           <!-- Template -->
-          <div class="card">
+          <a href="<?php the_permalink(); ?>" class="card">
             <div class="thumbnail" style="background-image:url(<?php the_post_thumbnail_url(); ?>)">
 
             </div>
             <h3><?php the_title(); ?></h3>
-          </div>
+          </a>
           <!-- End Template -->
 
           <?php $count++; } ?>
@@ -278,6 +281,30 @@
 
   </div>
 </div>
+
+<!-- BallBuster Babes goes here-->
+
+<div class="classicArchives">
+  <div class="cAHeader">
+    <h2>Classic Archives: Back in the Day!</h2>
+  </div>
+  <div class="cAFlex">
+
+      <div class="cAPost" style="background-image:url(http://www.ballbustermusic.com/images/ballbuster/hardtalk/2002/05/diamondhead/Diamondhead1.jpg)">
+        <a href="#">
+          <h2 class="overlay">Hard Talk with SEAN HARRIS OF DIAMOND HEAD fron 2002</h2>
+        </a>
+      </div>
+      <div class="cAPost" style="background-image:url(http://www.ballbustermusic.com/images/ballbuster/hardtalk/2006/01/la_guns.jpg)">
+        <a href="#">
+          <h2 class="overlay">Hard Talk with PHIL LEWIS OF LA GUNS from 2006</h2>
+        </a>
+      </div>
+
+  </div>
+</div>
+
+<!-- Look who read ballbuster goes here -->
 
 
 <script src="<?php bloginfo('template_directory');?>/js/carousel.js" charset="utf-8"></script>

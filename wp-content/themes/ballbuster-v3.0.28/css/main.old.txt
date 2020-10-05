@@ -1,0 +1,152 @@
+:root {
+  background-color: #000000;
+  color: #ffffff;
+  font-family: helvetica, sans-serif;
+
+  /* Colors */
+  --ballbuster-red: #f12c1e;
+  --ballbuster-yellow: #e2f500;
+
+  /* Margins and Padding */
+  --fullbleed: 0;
+  --btn-margin: 20px;
+  --btn-padding: 10px;
+
+  /* Fonts */
+
+}
+
+body {
+  margin: var(--fullbleed);
+}
+header {
+  margin: var(--fullbleed);
+}
+.bbm-logo {
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 300px;
+}
+#btn-menu {
+  display: block;
+  padding: var(--btn-padding);
+}
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 40px;
+  background-color: var(--ballbuster-red);
+}
+.toolbar a:hover {
+  color: var(--ballbuster-yellow);
+}
+.nav {
+  display: none;
+}
+.nav-right {
+  margin: auto var(--btn-margin);
+}
+.nav-right a {
+  color: #ffffff;
+  text-decoration: none;
+  margin-left: var(--btn-margin);
+}
+.drawer {
+  display: none;
+  position:fixed;
+  width: 100%;
+  z-index: 2;
+  background-color: rgba(0,0,0,0.6);
+}
+.nav-list {
+  width: 300px;
+  margin-left: -300px;
+  height: 100vh;
+  background-color: #252525;
+  transition: ease all 500ms;
+}
+.openDrawerShim {
+  display: block;
+}
+.openDrawer {
+  margin-left: 0;
+}
+.nav-list a {
+  display: block;
+  font-size: 1.2em;
+  padding: var(--btn-padding) 0 var(--btn-padding) var(--btn-margin);
+  color: #ffffff;
+  text-decoration: none;
+}
+
+@media (min-width:782px) {
+  .nav {
+    display: block;
+    flex: 1;
+    margin: auto auto auto var(--btn-margin);
+  }
+  .nav a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-right: var(--btn-margin);
+  }
+  #btn-menu {
+    display: none;
+  }
+}
+
+
+
+<a class="share-post-twitter">
+  <span><svg aria-labelledby="simpleicons-twitter-icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title id="simpleicons-twitter-icon">Twitter icon</title><path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"/></svg></span><span class="s-label">Twitter</span>
+</a>
+<a href="#" class="share-post-facebook">
+  <span><svg aria-labelledby="simpleicons-facebook-icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title id="simpleicons-facebook-icon">Facebook icon</title><path d="M22.676 0H1.324C.593 0 0 .593 0 1.324v21.352C0 23.408.593 24 1.324 24h11.494v-9.294H9.689v-3.621h3.129V8.41c0-3.099 1.894-4.785 4.659-4.785 1.325 0 2.464.097 2.796.141v3.24h-1.921c-1.5 0-1.792.721-1.792 1.771v2.311h3.584l-.465 3.63H16.56V24h6.115c.733 0 1.325-.592 1.325-1.324V1.324C24 .593 23.408 0 22.676 0"/></svg></span><span class="s-label">Facebook</span>
+</a>
+<!-- <a class="share-post-plus">
+  <span><svg aria-labelledby="simpleicons-googleplus-icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title id="simpleicons-googleplus-icon">Google+ icon</title><path d="M7.635 10.909v2.619h4.335c-.173 1.125-1.31 3.295-4.331 3.295-2.604 0-4.731-2.16-4.731-4.823 0-2.662 2.122-4.822 4.728-4.822 1.485 0 2.479.633 3.045 1.178l2.073-1.994c-1.33-1.245-3.056-1.995-5.115-1.995C3.412 4.365 0 7.785 0 12s3.414 7.635 7.635 7.635c4.41 0 7.332-3.098 7.332-7.461 0-.501-.054-.885-.12-1.265H7.635zm16.365 0h-2.183V8.726h-2.183v2.183h-2.182v2.181h2.184v2.184h2.189V13.09H24"/></svg></span><span class="s-label">Google+</span>
+</a> -->
+<script src="<?php bloginfo('template_directory');?>/js/clipboard.min.js" charset="utf-8"></script>
+<a href="#" class="share-post-link" data-clipboard-text="<?php echo get_the_permalink(); ?>">
+  <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M 6 7 C 3.239 7 1 9.239 1 12 C 1 14.761 3.239 17 6 17 L 10 17 L 10 15 L 6 15 C 4.343 15 3 13.657 3 12 C 3 10.343 4.343 9 6 9 L 10 9 L 10 7 L 6 7 z M 14 7 L 14 9 L 18 9 C 19.657 9 21 10.343 21 12 C 21 13.657 19.657 15 18 15 L 14 15 L 14 17 L 18 17 C 20.761 17 23 14.761 23 12 C 23 9.239 20.761 7 18 7 L 14 7 z M 7 11 L 7 13 L 17 13 L 17 11 L 7 11 z"></path>
+  </svg></span><span class="s-label">Get Link</span>
+</a>
+<script type="text/javascript">
+var clip = new ClipboardJS('.share-post-link');
+
+clip.on("success", function() {
+alert("URL copied to clipboard");
+});
+clip.on("error", function() {
+alert("That didn\'t work");
+});
+</script>
+</div>
+
+<script type="text/javascript">
+//Twitter Share Code
+var twitterBtn = document.querySelector('.share-post-twitter');
+var text = encodeURIComponent('via @BallBusterMusic');
+var shareUrl = 'https://twitter.com/intent/tweet?url=' + location.href + '&text=' + text;
+twitterBtn.href = shareUrl; // 1
+
+twitterBtn.addEventListener('click', function(e) {
+e.preventDefault();
+var win = window.open(shareUrl, 'ShareOnTwitter', getWindowOptions());
+win.opener = null; // 2
+});
+//Facebook Share Code
+var fbBtn = document.querySelector('.share-post-facebook');
+var title = encodeURIComponent('via @BallBusterMusic');
+var shareUrlF = 'https://www.facebook.com/sharer/sharer.php?u=' + location.href + '&title=' + title;
+fbBtn.href = shareUrlF; // 1
+
+fbBtn.addEventListener('click', function(e) {
+e.preventDefault();
+var win = window.open(shareUrlF, 'ShareOnFb', getWindowOptions());
+win.opener = null; // 2
+});
+</script>
