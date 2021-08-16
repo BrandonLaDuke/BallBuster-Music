@@ -1,7 +1,9 @@
 <?php
 
+use TNP\Mailer\PHPMailerLoader;
+
 /**
- * 
+ *
  */
 class NewsletterMailer {
 
@@ -16,7 +18,7 @@ class NewsletterMailer {
     private $delta;
     protected $batch_size = 1;
 
-    public function __construct($name, $options = array()) {
+    public function __construct($name, $options = []) {
         $this->name = $name;
         $this->options = $options;
     }
@@ -41,7 +43,7 @@ class NewsletterMailer {
     }
 
     /**
-     * 
+     *
      * @param TNP_Mailer_Message $message
      * @return bool|WP_Error
      */
@@ -62,7 +64,7 @@ class NewsletterMailer {
     }
 
     /**
-     * 
+     *
      * @param TNP_Mailer_Message[] $messages
      * @return bool|WP_Error
      */
@@ -110,59 +112,20 @@ class NewsletterMailer {
     }
 
     /**
-     * 
      * @return NewsletterLogger
      */
     function get_logger() {
         if ($this->logger) {
             return $this->logger;
         }
-        $this->logger = new NewsletterLogger('mailer-' . $this->name);
+        $this->logger = new NewsletterLogger($this->name . '-mailer');
         return $this->logger;
-    }
-
-    /**
-     * 
-     * @param TNP_Mailer_Message $message
-     * @return bool|WP_Error
-     */
-    public function enqueue(TNP_Mailer_Message $message) {
-        // Optimization when there is no queue
-        if ($this->queue_max == 0) {
-            $r = $this->send($message);
-            return $r;
-        }
-
-        $this->queue[] = $message;
-        if (count($this->queue) >= $this->queue_max) {
-            return $this->flush();
-        }
-        return true;
-    }
-
-    public function flush() {
-        $undelivered = array();
-        foreach ($this->queue as $message) {
-            $r = $this->deliver($message);
-            if (is_wp_error($r)) {
-                $message->error = $r;
-                $undelivered[] = $message;
-            }
-        }
-
-        $this->queue = array();
-
-        if ($undelivered) {
-            return new WP_Error(self::ERROR_GENERAL, 'Error while flushing messages', $undelivered);
-        }
-
-        return true;
     }
 
     /**
      * Original mail function simulation for compatibility.
      * @deprecated
-     * 
+     *
      * @param string $to
      * @param string $subject
      * @param array $message
@@ -179,9 +142,6 @@ class NewsletterMailer {
         $mailer_message->body = $message['html'];
         $mailer_message->body_text = $message['text'];
 
-        if ($enqueue) {
-            return !is_wp_error($this->enqueue($mailer_message));
-        }
         return !is_wp_error($this->send($mailer_message));
     }
 
@@ -196,12 +156,13 @@ class NewsletterMailer {
 }
 
 /**
- * @property string $to 
- * @property string $subject 
+ * @property string $to
+ * @property string $to_name
+ * @property string $subject
  * @property string $body
- * @property array $headers 
+ * @property array $headers
  * @property string $from
- * @property string $from_name 
+ * @property string $from_name
  */
 class TNP_Mailer_Message {
 
@@ -213,9 +174,10 @@ class TNP_Mailer_Message {
     var $subject = '';
     var $body = '';
     var $body_text = '';
+    var $from = '';
+    var $from_name = '';
 
 }
-
 
 /**
  * Wrapper mailer for old addons registering the "mail" method (ultra deprecated).
@@ -226,7 +188,7 @@ class NewsletterMailMethodWrapper extends NewsletterMailer {
 
     /**
      * The reference to the mail method.
-     * 
+     *
      * @param callback $callable Must be an array with object and method to call, no other callback formats allowed.
      */
     function __construct($callable) {
@@ -278,7 +240,7 @@ class NewsletterOldMailerWrapper extends NewsletterMailer {
 
     /**
      * Only send() needs to be implemented all other method will use the defail base-class implementation
-     * 
+     *
      * @param TNP_Mailer_Message $message
      * @return \WP_Error|boolean
      */
@@ -308,7 +270,7 @@ class NewsletterDefaultMailer extends NewsletterMailer {
 
     /**
      * Static to be accessed in the hook: on some installation the object $this is not working, we're still trying to understand why
-     * @var TNP_Mailer_Message 
+     * @var TNP_Mailer_Message
      */
     var $current_message = null;
 
@@ -322,16 +284,21 @@ class NewsletterDefaultMailer extends NewsletterMailer {
     }
 
     function fix_mailer($mailer) {
-        $newsletter = Newsletter::instance();
-        if (!empty($newsletter->options['content_transfer_encoding'])) {
-            $mailer->Encoding = $newsletter->options['content_transfer_encoding'];
-        } else {
-            $mailer->Encoding = 'base64';
-        }
-
         // If there is not a current message, wp_mail() was not called by us
         if (is_null($this->current_message)) {
             return;
+        }
+
+        $newsletter = Newsletter::instance();
+        if (isset($this->current_message->encoding)) {
+            $mailer->Encoding = $this->current_message->encoding;
+        } else {
+            if (!empty($newsletter->options['content_transfer_encoding'])) {
+                $mailer->Encoding = $newsletter->options['content_transfer_encoding'];
+            } else {
+                // Setting and encoding sometimes conflict with SMTP plugins
+                //$mailer->Encoding = 'base64';
+            }
         }
 
         /* @var $mailer PHPMailer */
@@ -343,6 +310,11 @@ class NewsletterDefaultMailer extends NewsletterMailer {
         }
     }
 
+    /**
+     * 
+     * @param TNP_Mailer_Message $message
+     * @return \WP_Error|boolean
+     */
     function send($message) {
 
         if (!$this->filter_active) {
@@ -351,9 +323,16 @@ class NewsletterDefaultMailer extends NewsletterMailer {
         }
 
         $newsletter = Newsletter::instance();
-        $wp_mail_headers = array();
-        // TODO: Manage the from address
-        $wp_mail_headers[] = 'From: "' . $newsletter->options['sender_name'] . '" <' . $newsletter->options['sender_email'] . '>';
+        $wp_mail_headers = [];
+        if (empty($message->from)) {
+            $message->from = $newsletter->options['sender_email'];
+        } 
+        
+        if (empty($message->from_name)) {
+            $message->from_name = $newsletter->options['sender_name'];
+        }
+        
+        $wp_mail_headers[] = 'From: "' . $message->from_name . '" <' . $message->from . '>';
 
         if (!empty($newsletter->options['reply_to'])) {
             $wp_mail_headers[] = 'Reply-To: ' . $newsletter->options['reply_to'];
@@ -417,7 +396,7 @@ class NewsletterDefaultSMTPMailer extends NewsletterMailer {
     }
 
     /**
-     * 
+     *
      * @param TNP_Mailer_Message $message
      * @return \WP_Error|boolean
      */
@@ -473,29 +452,24 @@ class NewsletterDefaultSMTPMailer extends NewsletterMailer {
     }
 
     /**
-     * 
+     *
      * @return PHPMailer
      */
     function get_mailer() {
         global $wp_version;
-        
+
         if ($this->mailer) {
             return $this->mailer;
         }
 
         $logger = $this->get_logger();
         $logger->debug('Setting up PHP mailer');
-         if (version_compare($wp_version, '5.4.9') > 0) {
-            require_once ABSPATH . WPINC . '/PHPMailer/PHPMailer.php';
-            require_once ABSPATH . WPINC . '/PHPMailer/SMTP.php';
-            require_once ABSPATH . WPINC . '/PHPMailer/Exception.php';
-            $this->mailer = new PHPMailer\PHPMailer\PHPMailer(false);
-        } else {
-            require_once ABSPATH . WPINC . '/class-phpmailer.php';
-            require_once ABSPATH . WPINC . '/class-smtp.php';
-            $this->mailer = new PHPMailer();
-        }
-        
+
+        require_once 'PHPMailerLoader.php';
+        $this->mailer = PHPMailerLoader::make_instance();
+
+        $this->mailer->XMailer = ' '; // A space!
+
         $this->mailer->IsSMTP();
         $this->mailer->Host = $this->options['host'];
         if (!empty($this->options['port'])) {
@@ -507,7 +481,7 @@ class NewsletterDefaultSMTPMailer extends NewsletterMailer {
             $this->mailer->Username = $this->options['user'];
             $this->mailer->Password = $this->options['pass'];
         }
-        $this->mailer->SMTPKeepAlive = true;
+
         $this->mailer->SMTPSecure = $this->options['secure'];
         $this->mailer->SMTPAutoTLS = false;
 
@@ -546,5 +520,3 @@ class NewsletterDefaultSMTPMailer extends NewsletterMailer {
     }
 
 }
-
-

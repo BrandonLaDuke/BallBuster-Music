@@ -177,6 +177,20 @@ function _tnp_get_default_media($media_id, $size) {
         return null;
     }
     $media = new TNP_Media();
+    $media->id = $media_id;
+    $media->url = $src[0];
+    $media->width = $src[1];
+    $media->height = $src[2];
+    return $media;
+}
+
+function tnp_get_media($media_id, $size) {
+    $src = wp_get_attachment_image_src($media_id, $size);
+    if (!$src) {
+        return null;
+    }
+    $media = new TNP_Media();
+    $media->id = $media_id;
     $media->url = $src[0];
     $media->width = $src[1];
     $media->height = $src[2];
@@ -200,15 +214,15 @@ function tnp_resize($media_id, $size) {
     if (empty($relative_file)) {
         return null;
     }
-    
+
     $uploads = wp_upload_dir();
-    
+
     // Based on _wp_relative_upload_path() function for blog which store the
     // full patch of media files
     if (0 === strpos($relative_file, $uploads['basedir'])) {
         $relative_file = str_replace($uploads['basedir'], '', $relative_file);
         $relative_file = ltrim($relative_file, '/');
-    }    
+    }
 
     $width = $size[0];
     $height = $size[1];
@@ -218,11 +232,15 @@ function tnp_resize($media_id, $size) {
     }
 
     $absolute_file = $uploads['basedir'] . '/' . $relative_file;
-    
+
     if (substr($relative_file, -4) === '.gif') {
         $editor = wp_get_image_editor($absolute_file);
+        if (is_wp_error($editor)) {
+            return _tnp_get_default_media($media_id, $size);
+        }
         $new_size = $editor->get_size();
         $media = new TNP_Media();
+        $media->id = $media_id;
         $media->width = $new_size['width'];
         $media->height = $new_size['height'];
         if ($media->width > $width) {
@@ -231,7 +249,7 @@ function tnp_resize($media_id, $size) {
         $media->url = $uploads['baseurl'] . '/' . $relative_file;
         return $media;
     }
-        
+
     // Relative and absolute name of the thumbnail.
     $pathinfo = pathinfo($relative_file);
     $relative_thumb = $pathinfo['dirname'] . '/' . $pathinfo['filename'] . '-' . $width . 'x' . $height . ($crop ? '-c' : '') . '.' . $pathinfo['extension'];
@@ -243,7 +261,7 @@ function tnp_resize($media_id, $size) {
 
         if (!$r) {
             Newsletter::instance()->logger->error('Unable to create dir ' . $uploads['basedir'] . '/newsletter/thumbnails/' . $pathinfo['dirname']);
-            return _tnp_get_default_media($media_id);
+            return _tnp_get_default_media($media_id, $size);
         }
 
         $editor = wp_get_image_editor($absolute_file);
@@ -288,6 +306,15 @@ function tnp_resize($media_id, $size) {
     }
 
     return $media;
+}
+
+function tnp_resize_2x($media_id, $size) {
+	$size[0] = $size[0] * 2;
+	$size[1] = $size[1] * 2;
+	$media = tnp_resize($media_id, $size);
+        if (!$media) return $media;
+	$media->set_width( $size[0] / 2 );
+	return $media;
 }
 
 /**

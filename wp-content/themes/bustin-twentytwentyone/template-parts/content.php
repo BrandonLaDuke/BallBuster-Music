@@ -17,11 +17,13 @@
 
 	<?php
 
-	get_template_part( 'template-parts/entry-header' );
 
-	if ( ! is_search() ) {
-		get_template_part( 'template-parts/featured-image' );
-	}
+
+	if ( ! is_search() ) { ?>
+  <?php  get_template_part( 'template-parts/post-header-default' );
+	} else {
+    get_template_part( 'template-parts/entry-header' );
+  }
 
 	?>
 
@@ -83,7 +85,7 @@
 
 		<div class="comments-wrapper section-inner">
 
-			<?php comments_template(); ?>
+			<?php echo do_shortcode('[easy-facebook-comments]'); ?>
 
 		</div><!-- .comments-wrapper -->
 

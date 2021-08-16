@@ -623,6 +623,23 @@ function twentytwenty_customize_preview_init() {
 
 add_action( 'customize_preview_init', 'twentytwenty_customize_preview_init' );
 
+// Add user contact methods
+add_filter( 'user_contactmethods','wpse_user_contactmethods', 10, 1 );
+function wpse_user_contactmethods( $contact_methods ) {
+    $contact_methods['facebook'] = __( 'Facebook URL', 'text_domain'    );
+    $contact_methods['instagram'] = __( 'Instagram URL', 'text_domain'    );
+    $contact_methods['linkedin'] = __( 'LinkedIn URL', 'text_domain'    );
+    $contact_methods['myspace'] = __( 'MySpace URL', 'text_domain'    );
+    $contact_methods['pinterest'] = __( 'Pinterest URL', 'text_domain'    );
+    $contact_methods['soundcloud'] = __( 'SoundCloud URL', 'text_domain'    );
+    $contact_methods['tumblr'] = __( 'Tumblr URL', 'text_domain'    );
+    $contact_methods['twitter']  = __( 'Twitter URL', 'text_domain' );
+    $contact_methods['youtube']  = __( 'YouTube URL', 'text_domain' );
+    $contact_methods['wikipedia']  = __( 'Wikipedia URL', 'text_domain' );
+
+    return $contact_methods;
+}
+
 /**
  * Get accessible color for an area.
  *
