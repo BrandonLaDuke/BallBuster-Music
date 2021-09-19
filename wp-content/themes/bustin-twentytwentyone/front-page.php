@@ -69,7 +69,7 @@
     <div class="section-title">
       <h2 class=category-heading>The Latest</h2>
       <div class="current-date">
-July 17, 2021</div>
+<?php echo date("M d, Y") ?></div>
     </div>
   </div>
   <div class="latest-posts round-tn">
@@ -114,17 +114,18 @@ if ( $query->have_posts() ) {
     </div>
     <br>
     <div class="our-partners">
-      <img src="https://www.ballbustermusic.com/wp-content/uploads/2021/07/mvd.jpeg" alt="MVD">
-      <img src="https://www.ballbustermusic.com/wp-content/uploads/2021/07/metalblade.jpeg" alt="metalblade">
-      <img src="https://www.ballbustermusic.com/wp-content/uploads/2021/07/SME-logo-on-black-background.jpg" alt="SME">
-      <img src="https://www.ballbustermusic.com/wp-content/uploads/2021/07/roadrunnerheader.jpg" alt="Roadrunner records">
-      <img src="https://www.ballbustermusic.com/wp-content/uploads/2021/07/century-media.jpeg" alt="Centry Media">
-      <img src="https://www.ballbustermusic.com/wp-content/uploads/2021/07/labels-columbia.jpeg" alt="Columbia Records">
-      <img src="https://www.ballbustermusic.com/wp-content/uploads/2021/07/legacy.jpeg" alt="Legacy">
-      <img src="https://www.ballbustermusic.com/wp-content/uploads/2021/07/cleopatra.jpeg" alt="cleopatra">
-      <img src="https://www.ballbustermusic.com/wp-content/uploads/2021/07/acetate.jpeg" alt="Acetate">
-      <img src="https://www.ballbustermusic.com/wp-content/uploads/2021/07/puresteel.jpg" alt="puresteel">
-      <img src="https://www.ballbustermusic.com/wp-content/uploads/2021/07/deadlinemusic.jpg" alt="Deadline Music Records">
+      <a href=""><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/07/mvd.jpeg" alt="MVD"></a>
+      <a href=""><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/07/metalblade.jpeg" alt="metalblade"></a>
+      <a href=""><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/07/SME-logo-on-black-background.jpg" alt="SME"></a>
+      <a href=""><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/07/roadrunnerheader.jpg" alt="Roadrunner records"></a>
+      <a href=""><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/07/century-media.jpeg" alt="Centry Media"></a>
+      <a href=""><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/07/labels-columbia.jpeg" alt="Columbia Records"></a>
+      <a href=""><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/07/legacy.jpeg" alt="Legacy"></a>
+      <a href=""><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/07/cleopatra.jpeg" alt="cleopatra"></a>
+      <a href=""><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/07/acetate.jpeg" alt="Acetate"></a>
+      <a href=""><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/07/puresteel.jpg" alt="puresteel"></a>
+      <a href=""><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/07/deadlinemusic.jpg" alt="Deadline Music Records"></a>
+      <a href=""><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/08/theprp.jpeg" alt="ThePRP"></a>
     </div>
     <div class="hit-counter">
       <h2>You are visitor<h2>
@@ -134,6 +135,86 @@ if ( $query->have_posts() ) {
 
 
 </div> <!-- #sonic-grid -->
+
+<!-- Haunted Happenings -->
+<div class="wide-feature haunted-feature" style="background-image: url('https://www.ballbustermusic.com/wp-content/uploads/2021/09/haunted-happenings-bkg-2021-scaled.jpeg');">
+  <div class="h-category">
+    <a href="https://www.ballbustermusic.com/category/hauntedhappenings/">
+      <h2><span>Haunted Happenings</span></h2>
+      <h2 class="hidden-message-h haunted-happenings">READ IF YOU DARE...</h2>
+      <p></p>
+    </a>
+  </div>
+</div>
+
+<div class="f-category">
+  <h3 class="haunted-happenings">Haunted Happenings</h3>
+  <div class="column-grid-f g-ps">
+
+
+  <div class="newps">
+    <?php
+    $next_args = array(
+      'posts_per_page'=>1,
+      'category_name'=>"hauntedhappenings"
+    );
+    $query = new WP_Query( $next_args );
+    if ( $query->have_posts() ) {
+      $not_in_next_two = array();
+      while ( $query->have_posts() ) {
+        $query->the_post(); ?>
+        <a href="<?php the_permalink() ?>">
+    <article class="tall-roku" style="background-image:url(<?php the_post_thumbnail_url(); ?>)">
+
+      <div class="post-text-block">
+
+        <h1><?php the_title(); ?></h1>
+
+        <span><?php the_date(); ?></span>
+
+      </div>
+    </article> <!-- .sonic-featured -->
+    </a>
+    <?php
+        $not_in_hauntedhappenings[] = get_the_ID();
+      }
+    } ?>
+  </div>
+
+    <?php $next_args = array(
+      'posts_per_page'=>6,
+      'category_name'=>"hauntedhappenings",
+      'post__not_in'=>$not_in_hauntedhappenings
+    );
+    $query = new WP_Query( $next_args );
+    if ( $query->have_posts() ) {
+      while ( $query->have_posts() ) {
+        $query->the_post(); ?>
+        <!-- Start Repeating Post Loop -->
+        <div class="cl-6">
+          <a href="<?php the_permalink() ?>">
+          <article class="post-bkg-tn" style="background-image:url(<?php the_post_thumbnail_url(); ?>)">
+
+
+            <div class="post-text-block">
+
+              <h1><?php the_title(); ?></h1>
+
+              <span><?php the_date(); ?></span>
+
+            </div>
+
+          </article> <!-- .sonic-featured -->
+          </a>
+          <!--  End Repeating Post Loop  -->
+        </div>
+  <?php
+
+      }
+    } ?>
+    </div>
+</div>
+
 
 <div class="three-equal-grid">
   <!-- Three coloumn Layout -->
@@ -318,13 +399,13 @@ if ( $query->have_posts() ) {
 
 
 
-<div class="wide-feature" style="background-image: url('https://www.spinelessbound.com/img/books.jpg');">
+<!-- <div class="wide-feature" style="background-image: url('https://www.spinelessbound.com/img/books.jpg');">
   <div class="f-category">
     <a href="#">
       <h2>Back in the Day! A look back at the BallBuster Music Legacy</h2>
     </a>
   </div>
-</div>
+</div> -->
 
 
 
@@ -396,12 +477,14 @@ if ( $query->have_posts() ) {
     </div>
 </div>
 
-<div class="wide-feature" style="background-image: url('https://www.spinelessbound.com/img/books.jpg');">
-  <div class="f-category">
-    <a href="#">
-      <h2>A look back at the BallBuster Music Legacy from the Official BallBuster Hard Music: The International Underground Hard Music Report</h2>
-    </a>
-  </div>
+<div class="our-partners partners-2">
+  <a href=""><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/08/kerrang.jpeg.webp" alt="kerrang"></a>
+  <a href=""><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/08/bravewords.jpeg.webp" alt="Bravewords"></a>
+  <a href=""><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/08/mhf.png.webp" alt="MHF"></a>
+  <a href=""><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/08/tps-logo.webp" alt="The Punk Site"></a>
+  <a href=""><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/08/mk.jpeg.webp" alt="MK"></a>
+  <a href=""><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/08/ds-mag.jpeg" alt="Distorted Sound Mag"></a>
+  <a href=""><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/08/blabbermouth-1.jpeg.webp" alt="BlabberMouth.net"></a>
 </div>
 
 <div class="f-category">

@@ -39,12 +39,15 @@ if ( is_singular() ) {
           <?php
             $category = get_the_category();
             $firstCategory = $category[0]->cat_name;
+            $category_link = get_category_link($firstCategory->cat_ID);
                if ($firstCategory == "PIGSHIT") { ?>
-                 <a href="https://www.ballbustermusic.com/category/pigshit/"><img style="margin-left:.6em; margin-top:1em;" width="200px" src="<?php bloginfo('template_directory');?>/assets/images/category-logos/PigshitLogo.jpeg" alt="Pigshit"></a> <?php
+                 <a href="https://ballbustermusic.com/category/columns/pigshit"><img style="margin-left:.6em; margin-top:1em;" width="200px" src="<?php bloginfo('template_directory');?>/assets/images/category-logos/PigshitLogo.jpeg" alt="Pigshit"></a> <?php
+
+
                } else {
-                 ?>
+              ?>
                   <div class="entry-categories-inner entry-categories-inner-default">
-                 <?php
+              <?php
                   the_category( ' ' );
                  ?>
                  </div><!-- .entry-categories-inner -->
@@ -87,7 +90,6 @@ if ( is_singular() ) {
     <div class="post-meta-wrapper post-meta-single post-meta-single-top">
 
 			<ul class="post-meta">
-
 									<li class="post-author meta-wrapper">
 						<span class="meta-icon">
 							<span class="screen-reader-text">Post author</span>

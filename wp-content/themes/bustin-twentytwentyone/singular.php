@@ -30,6 +30,10 @@ get_header();
 
 
 <div class="latest-posts related-posts round-tn">
+  <div class="spa-area">
+
+  </div>
+
   <div class="section-title">
     <h2 class=category-heading>Related Posts</h2>
   </div>
@@ -37,7 +41,7 @@ get_header();
 $tags = wp_get_post_terms( get_queried_object_id(), 'post_tag', ['fields' => 'ids'] );
 $args = [
     'post__not_in'        => array( get_queried_object_id() ),
-    'posts_per_page'      => 5,
+    'posts_per_page'      => 10,
     'ignore_sticky_posts' => 1,
     'orderby'             => 'rand',
     'tax_query' => [
@@ -55,9 +59,8 @@ if( $my_query->have_posts() ) {
   <hr>
   <article class="post">
     <a href="<?php the_permalink() ?>">
-
       <div class="post-thumbnail" style="background-image:url(<?php the_post_thumbnail_url(); ?>)"></div>
-      <div class="latest-right">
+      <div class="post-text-area" style="margin-left:1rem;">
         <span class="cat-label"><?php $category = get_the_category();
         echo $category[0]->cat_name; ?></span>
         <h2><?php the_title(); ?></h2>
@@ -70,6 +73,18 @@ if( $my_query->have_posts() ) {
   wp_reset_postdata();
   ?>
   <!--  End Repeating Post Loop  -->
+
+  <div class="spa-area">
+
+  </div>
+
+  <div class="social-qs social-area">
+    <br>
+    <div class="newsletter">
+      <p><span>Join the Newsletter</span> and stay up to date on all things BallBuster Music!</p>
+      <a href="#">Subscribe ></a>
+    </div>
+  </div>
 
 </div>
 

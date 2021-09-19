@@ -125,7 +125,7 @@ if( $my_query->have_posts() ) {
     <a href="<?php the_permalink() ?>">
 
       <div class="post-thumbnail" style="background-image:url(<?php the_post_thumbnail_url(); ?>)"></div>
-      <div class="latest-right">
+      <div class="latest-right" style="margin-left:1rem;">
         <span class="cat-label"><?php $category = get_the_category();
         echo $category[0]->cat_name; ?></span>
         <h2><?php the_title(); ?></h2>

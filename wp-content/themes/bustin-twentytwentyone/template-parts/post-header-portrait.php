@@ -34,9 +34,22 @@ if ( is_singular() ) {
 
 			<div class="entry-categories">
 				<span class="screen-reader-text"><?php _e( 'Categories', 'twentytwenty' ); ?></span>
-				<div class="entry-categories-inner">
-					<?php the_category( ' ' ); ?>
-				</div><!-- .entry-categories-inner -->
+        <?php
+          $category = get_the_category();
+          $firstCategory = $category[0]->cat_name;
+          $category_link = get_category_link($firstCategory->cat_ID);
+             if ($firstCategory == "PIGSHIT") { ?>
+               <a href="https://ballbustermusic.com/category/columns/pigshit"><img style="margin-left:.6em; margin-top:1em;" width="200px" src="<?php bloginfo('template_directory');?>/assets/images/category-logos/PigshitLogo.jpeg" alt="Pigshit"></a> <?php
+             } else {
+               ?>
+                <div class="entry-categories-inner">
+               <?php
+                the_category( ' ' );
+               ?>
+               </div><!-- .entry-categories-inner -->
+               <?php
+             }
+        ?>
 			</div><!-- .entry-categories -->
 
 			<?php

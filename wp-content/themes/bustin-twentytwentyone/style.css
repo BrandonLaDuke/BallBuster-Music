@@ -54,6 +54,8 @@ with others.
 /* -------------------------------------------------------------------------- */
 @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Text:wght@900&family=Yantramanav:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+@import url('http://fonts.cdnfonts.com/css/stencil-gothic-be');
+@import url('http://fonts.cdnfonts.com/css/bloodyslime');
 
 html,
 body {
@@ -254,6 +256,10 @@ path {
 	src: url(data:application/font-woff2;charset=utf-8;base64,d09GMgABAAAAAAMoAA0AAAAACDQAAALTAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP0ZGVE0cGh4GYACCahEICjx3CywAATYCJANUBCAFhiEHgWwbXQfILgpsY+rQRRARwyAs6uL7pxzYhxEE+32b3aeHmifR6tklkS9hiZA0ewkqGRJE+H7/+6378ASViK/PGeavqJyOzsceKi1s3BCiQsiOdn1r/RBgIJYEgCUhbm/8/8/h4saPssnTNkkiWUBrTRtjmQSajw3Ui3pZ3LYDPD+XG2C3JA/yKAS8/rU5eNfuGqRf4eNNgV4YAlIIgxglEkWe6FYpq10+wi3g+/nUgvgPFczNrz/RsTgVm/zfbPuHZlsuQECxuyqBcQwKFBjFgKO8AqP4bAN9tFJtnM9xPcbNjeXS/x1wY/xU52f5W/X1+9cnH4YwKIaoRRAkUkj/YlAAeF/624foiIDBgBmgQBeGAyhBljUPZUm/l2dTvmpqcBDUOHdbPZWd8JsBAsGr4w8/EDn82/bUPx4eh0YNrQTBuHO2FjQEAGBwK0DeI37DpQVqdERS4gZBhpeUhWCfLFz7J99aEBgsJCHvUGAdAPp4IADDCAPCEFMGpMZ9AQpTfQtQGhLbGVBZFV8BaqNyP68oTZgHNj3M8kBPfXTTC9t90UuzYhy9ciH0grVlOcqyCytisvbsERsEYztiznR0WCrmTksJwbSNK6fd1Rvr25I9oLvctUoEbNOmXJbqgYgPXEHJ82IUsrCnpkxh23F1rfZ2zcRnJYoXtauB3VTFkFXQg3uoZYD5qE0kdjDtoDoF1h2bulGmev5HbYhbrjtohQSRI4aNOkffIcT+d3v6atpaYh3JvPoQsztCcqvaBkppDSPcQ3bw3KaCBo1f5CJWTZEgW3LjLofYg51MaVezrx8xZitYbQ9KYeoRaqQdVLwSEfrKXLK1otCWOKNdR/YwYAfon5Yk8O2MJfSD10dPGA5PIJJQMkah0ugMJiv6x4Dm7LEa8xnrRGGGLAg4sAlbsA07sAt76DOsXKO3hIjtIlpnnFrt1qW4kh6NhS83P/6HB/fl1SMAAA==) format("woff2"), url(data:application/font-woff;charset=utf-8;base64,d09GRgABAAAAAAUQAA0AAAAACDQAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAAE9AAAABwAAAAchf5yU0dERUYAAATYAAAAHAAAAB4AJwAbT1MvMgAAAaAAAABJAAAAYJAcgU5jbWFwAAACIAAAAF4AAAFqUUxBZ2dhc3AAAATQAAAACAAAAAgAAAAQZ2x5ZgAAApAAAAAyAAAAPL0n8y9oZWFkAAABMAAAADAAAAA2Fi93Z2hoZWEAAAFgAAAAHQAAACQOSgWaaG10eAAAAewAAAAzAAAAVC7TAQBsb2NhAAACgAAAABAAAAAsAOQBAm1heHAAAAGAAAAAHQAAACAAWQALbmFtZQAAAsQAAAF6AAADIYvD/Adwb3N0AAAEQAAAAI4AAADsapk2o3jaY2BkYGAA4ov5mwzj+W2+MnCzXwCKMNzgCBSB0LfbQDQ7AxuI4mBgAlEAFKQIRHjaY2BkYGD3+NvCwMDBAALsDAyMDKhAFAA3+wH3AAAAeNpjYGRgYBBl4GBgYgABEMnIABJzAPMZAAVmAGUAAAB42mNgZlJhnMDAysDCKsKygYGBYRqEZtrDYMT4D8gHSmEHjgUFOQwODAqqf9g9/rYwMLB7MNUAhRlBcsxBrMlASoGBEQAj8QtyAAAAeNrjYGBkAAGmWQwMjO8gmBnIZ2NA0ExAzNjAAFYJVn0ASBsD6VAIDZb7AtELAgANIgb9AHjaY2BgYGaAYBkGRgYQSAHyGMF8FgYPIM3HwMHAxMDGoMCwQIFLQV8hXvXP//9AcRCfAcb///h/ygPW+w/vb7olBjUHCTCyMcAFGZmABBO6AogThgZgIUsXAEDcEzcAAHjaY2BgECMCyoEgACZaAed42mNgYmRgYGBnYGNgYAZSDJqMgorCgoqCjECRXwwNrCAKSP5mAAFGBiRgyAAAi/YFBQAAeNqtkc1OwkAUhU/5M25cEhcsZick0AwlBJq6MWwgJkAgYV/KAA2lJeUn+hY+gktXvpKv4dLTMqKycGHsTZNv7px7z50ZAFd4hYHjdw1Ls4EiHjVncIFnzVnc4F1zDkWjrzmPW+NNcwGlzIRKI3fJlUyrEjZQxb3mDH2fNGfRx4vmHKqG0JzHg6E0F9DOlFBGBxUI1GEzLNT4S0aLuTtsGAEUuYcQHkyg3KmIum1bNUvKlrjbbAIleqHHnS4iSudpQcySMYtdFiXlAxzSbAwfMxK6kZoHKhbjjespMTioOPZnzI+4ucCeTVyKMVKLfeAS6vSWaTinuZwzyy/Dc7vaed+6KaV0kukdPUk6yOcctZPvvxxqksq2lEW8RvHjMEO2FCl/zy6p3NEm0R9OFSafJdldc4QVeyaaObMBO0/5cCaa6d9Ggyubxire+lEojscdjoWUR1xGOy8KD8mG2ZLO2l2paDc3A39qmU2z2W5YNv5+u79e6QfGJY/hAAB42m3NywrCMBQE0DupWp/1AYI7/6DEaLQu66Mrd35BKUWKJSlFv1+rue4cGM7shgR981qSon+ZNwUJ8iDgoYU2OvDRRQ99DDDECAHGmGCKmf80hZSx/Kik/LliFbtmN6xmt+yOjdg9GztV4tROnRwX/Bsaaw51nt4Lc7tWaZYHp/MlzKx51LZs5htNri+2AAAAAQAB//8AD3jaY2BkYGDgAWIxIGZiYARCESBmAfMYAAR6AEMAAAABAAAAANXtRbgAAAAA2AhRFAAAAADYCNuG) format("woff");
 }
 
+.haunted-happenings {
+  font-family: 'Bloodyslime', sans-serif;
+  letter-spacing: 2px;
+}
 /* ----------------------------------------------
 Inter variable font. Usage:
 
@@ -2620,7 +2626,7 @@ background: linear-gradient(to right, #93291E, #ED213A); /* W3C, IE 10+/ Edge, F
 }
 .post-bkg-tn {
   width: auto;
-  height: 40rem;
+  height: 30rem;
   background-size: cover;
   background-position: center;
   position: relative;
@@ -2729,6 +2735,86 @@ background: linear-gradient(to right, #93291E, #ED213A); /* W3C, IE 10+/ Edge, F
   color: #f00;
   background-color: #000;
 }
+.haunted-feature a:hover {
+  animation-name: haunted-l;
+  animation-duration: 5s;
+}
+.haunted-feature a h2 {
+  display: block;
+  background-color: #000;
+}
+.haunted-feature a h2 span {
+  font-family: 'Bloodyslime', sans-serif;
+  letter-spacing: 2px;
+  font-size: 5rem;
+  text-align: center;
+  display: block;
+  background: #200122;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #ff0000, #500f0f);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #ff0000, #500f0f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 4px -6px 12px #00000044;
+  transition: 2000ms ease all;
+}
+.haunted-feature a:hover h2 span {
+  font-size: 7rem;
+}
+@keyframes haunted-l {
+  0% {
+    background-color: transparent
+  }
+  1% {
+    background-color: transparent
+  }
+  2% {
+    background-color: #fff;
+  }
+  3% {
+    background-color: transparent;
+  }
+  59% {
+    background-color: transparent;
+  }
+  60% {
+    background-color: #f00;
+  }
+  61% {
+    background-color: transparent;
+  }
+  70% {
+    background-color: transparent
+  }
+  71% {
+    background-color: #fff;
+  }
+  72% {
+    background-color: transparent;
+  }
+  73% {
+    background-color: transparent
+  }
+  74% {
+    background-color: #fff;
+  }
+  75% {
+    background-color: transparent;
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+.hidden-message-h {
+  transition: 2000ms ease all;
+  margin-top: -15px !important;
+  font-size: 0px !important;
+}
+.haunted-feature a:hover .hidden-message-h {
+  height:auto;
+  font-size: 3rem !important;
+}
+
 #sonic-grid {
   grid-template-columns: 1fr;
   grid-auto-rows: auto;
@@ -2744,12 +2830,13 @@ background: linear-gradient(to right, #93291E, #ED213A); /* W3C, IE 10+/ Edge, F
     margin-top: 1rem;
   }
   .our-partners {
-    display: flex;
+    /* display: flex; Bug is here. */
+    display: none;
     flex-direction: row;
     gap: 1rem;
     overflow-x: scroll;
   }
-  .our-partners img {
+  .our-partners a img {
     width: 80px;
     height: 80px;
   }
@@ -2777,6 +2864,19 @@ background: linear-gradient(to right, #93291E, #ED213A); /* W3C, IE 10+/ Edge, F
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 1rem;
+  }
+  .partners-2 {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1400px;
+    margin: 5rem auto 0 auto;
+    overflow-x: scroll;
+  }
+  .partners-2 a img {
+    width: 130px;
+    min-width: 130px;
+    height: 130px;
+    min-height: 130px;
   }
   .g-ps {
     grid-template-areas: "newps . . ."
@@ -3332,6 +3432,41 @@ h2.entry-title {
     display: inline-block;
     vertical-align: top;
   }
+}
+
+
+/* Page: Category ------------------------- */
+.categoryProfile {
+  width: 100%;
+  max-width: 1400px;
+  margin: auto;
+  padding: 1rem;
+  text-align: center;
+}
+.categoryProfile > h1 {
+  font-family: 'Stencil Gothic BE', sans-serif;
+  letter-spacing: 4px;
+}
+.categoryProfile img {
+  margin: auto;
+  width: 90%;
+  max-width: 800px;
+}
+
+
+/* Page: Search ------------------------- */
+.searchProfile {
+  width: 100%;
+  max-width: 1400px;
+  margin: auto;
+  padding: 1rem;
+  text-align: center;
+}
+.searchProfile .search-title {
+  font-size: 3rem;
+}
+.searchProfile .search-title span {
+  color: #f00;
 }
 
 /* Single Pagination ------------------------- */
@@ -6004,6 +6139,9 @@ a.to-the-top > * {
   .entry-header-video .entry-header-inner-video .singular .featured-media-inner {
     left: auto !important;
     width: auto !important;
+  }
+  .entry-header-video {
+    background-color: #000 !important;
   }
 
 	.entry-content p,
