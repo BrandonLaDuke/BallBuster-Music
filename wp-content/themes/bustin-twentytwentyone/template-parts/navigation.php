@@ -2,9 +2,9 @@
 /**
  * Displays the next and previous post navigation in single posts.
  *
- * @package WordPress
- * @subpackage Twenty_Twenty
- * @since Twenty Twenty 1.0
+ * @package BallBuster Music
+ * @subpackage BBM_4
+ * @since BBM 4.0
  */
 
 $next_post = get_next_post();

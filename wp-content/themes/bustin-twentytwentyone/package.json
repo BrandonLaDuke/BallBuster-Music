@@ -1,15 +1,15 @@
 {
-	"name": "twentytwenty",
-	"version": "1.5.0",
-	"description": "Default WP Theme",
-	"author": "The WordPress Contributors",
+	"name": "BallBuster Music",
+	"version": "4.0",
+	"description": "BallBuster Music WP Theme",
+	"author": "Brandon LaDuke",
 	"license": "GPL-2.0-or-later",
 	"keywords": [
 		"WordPress",
 		"Theme",
-		"TwentyTwenty"
+		"BallBuster Music"
 	],
-	"homepage": "https://github.com/wordpress/twentytwenty#readme",
+	"homepage": "https://github.com/BrandonLaDuke/BallBuster-Music#readme",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/wordpress/twentytwenty.git"

@@ -1,76 +1,30 @@
-=== Twenty Twenty ===
-Contributors: the WordPress team
+=== BallBuster Music 21 ===
+Contributors: Brandon LaDuke
 Tested up to: 5.5
 Stable tag: 1.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Default theme for 2020.
 
 == Description ==
 
-Our default theme for 2020 is designed to take full advantage of the
-flexibility of the block editor. Organizations and businesses have the
-ability to create dynamic landing pages with endless layouts using the
-group and column blocks. The centered content column and fine-tuned
-typography also makes it perfect for traditional blogs. Complete editor
-styles give you a good idea of what your content will look like, even
-before you publish. You can give your site a personal touch by changing
-the background colors and the accent color in the Customizer. The colors of
-all elements on your site are automatically calculated based on the colors
-you pick, ensuring a high, accessible color contrast for your visitors.
+This is the new incarnation of the BallBuster website evolution.
 
 == Changelog ==
 
-= 1.5 =
-* Released: August 11, 2020
+= 4.0 =
+* Released: September 22, 2021
 
-https://wordpress.org/support/article/twenty-twenty-changelog/#Version_1.5
-
-= 1.4 =
-* Released: June 10, 2020
-
-https://wordpress.org/support/article/twenty-twenty-changelog/#Version_1.4
-
-= 1.3 =
-* Released: May 14, 2020
-
-https://wordpress.org/support/article/twenty-twenty-changelog/#Version_1.3
-
-= 1.2 =
-* Released: March 31, 2020
-
-https://wordpress.org/support/article/twenty-twenty-changelog/#Version_1.2
-
-= 1.1 =
-* Released: December 12, 2019
-
-https://wordpress.org/support/article/twenty-twenty-changelog/#Version_1.1
-
-= 1.0 =
-* Released: November 12, 2019
 
 Initial release
 
 == Copyright ==
 
-Twenty Twenty WordPress Theme, Copyright 2019-2020 WordPress.org
-Twenty Twenty is distributed under the terms of the GNU GPL.
+BallBuster Music 2021
 
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 2 of the License, or
-(at your option) any later version.
+BallBuster Music 21 is derived from the Twenty Twenty,
 
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
-
-Twenty Twenty is derived from the Chaplin Theme, Copyright 2019 Anders Norén
-Chaplin Theme is distributed under the terms of the GNU GPL version 2.0
-
-Twenty Twenty bundles the following third-party resources:
+BallBuster Music 21 bundles the following third-party resources:
 
 Illustrations by Tammie Lister
 License: Creative Commons Zero (CC0), https://creativecommons.org/publicdomain/zero/1.0/

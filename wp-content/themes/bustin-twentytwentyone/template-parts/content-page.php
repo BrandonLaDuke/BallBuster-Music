@@ -6,15 +6,15 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package WordPress
- * @subpackage Twenty_Twenty
- * @since Twenty Twenty 1.0
+ * @package BallBuster Music
+ * @subpackage BBM_4
+ * @since BBM 4.0
  */
 
 ?>
 
 
-  
+
 
 	<div class="post-inner <?php echo is_page_template( 'templates/template-full-width.php' ) ? '' : 'thin'; ?> ">
 

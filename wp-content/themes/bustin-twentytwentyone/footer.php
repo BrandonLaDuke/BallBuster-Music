@@ -6,9 +6,9 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package WordPress
- * @subpackage Twenty_Twenty
- * @since Twenty Twenty 1.0
+ * @package BallBuster Music
+ * @subpackage BBM_4
+ * @since BBM 4.0
  */
 
 ?>
@@ -18,7 +18,7 @@
 
 					<div class="footer-credits">
 
-						<p class="footer-copyright">&copy; 1995 - 
+						<p class="footer-copyright">&copy; 1995 -
 							<?php
 							echo date_i18n(
 								/* translators: Copyright date format, see https://www.php.net/date */

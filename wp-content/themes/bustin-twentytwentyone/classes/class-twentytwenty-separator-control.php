@@ -2,9 +2,9 @@
 /**
  * Customizer Separator Control settings for this theme.
  *
- * @package WordPress
- * @subpackage Twenty_Twenty
- * @since Twenty Twenty 1.0
+ * @package BallBuster Music
+ * @subpackage BBM_4
+ * @since BBM 4.0
  */
 
 if ( class_exists( 'WP_Customize_Control' ) ) {

@@ -1,12 +1,12 @@
 <?php
 /**
- * Header file for the Twenty Twenty WordPress default theme.
+ * Header file for the BallBuster Music theme.
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package WordPress
- * @subpackage Twenty_Twenty
- * @since Twenty Twenty 1.0
+ * @package BallBuster Music
+ * @subpackage BBM_4
+ * @since BBM 4.0
  */
 
 ?><!DOCTYPE html>

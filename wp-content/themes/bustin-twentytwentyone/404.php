@@ -2,9 +2,9 @@
 /**
  * The template for displaying the 404 template in the Twenty Twenty theme.
  *
- * @package WordPress
- * @subpackage Twenty_Twenty
- * @since Twenty Twenty 1.0
+ * @package BallBuster Music
+ * @subpackage BBM_4
+ * @since BBM 4.0
  */
 
 get_header();

@@ -2,9 +2,9 @@
 /**
  * Twenty Twenty Custom CSS
  *
- * @package WordPress
- * @subpackage Twenty_Twenty
- * @since Twenty Twenty 1.0
+ * @package BallBuster Music
+ * @subpackage BBM_4
+ * @since BBM 4.0
  */
 
 if ( ! function_exists( 'twentytwenty_generate_css' ) ) {
