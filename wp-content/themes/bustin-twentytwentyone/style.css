@@ -2591,6 +2591,9 @@ background: linear-gradient(to right, #93291E, #ED213A); /* W3C, IE 10+/ Edge, F
 .social-area h2 {
   font-size: 2rem;
   margin: 1rem 0;
+  color: #fff;
+}
+.social-area .latest-posts .post:hover h2 {
   color: #f00;
 }
 .hit-counter {
