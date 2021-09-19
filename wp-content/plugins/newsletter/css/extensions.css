@@ -3,15 +3,17 @@
 .tnp-extension-premium-box, .tnp-extension-free-box, .tnp-integration-box {
     width: 300px;
     height: 220px;
-    background-color: #222B36;
+    /*background-color: #222B36;*/
+    background-color: #28313C;
     text-align: center;
-    margin: 20px;
+    margin: 20px 20px 0px 0px;
     float: left;
     position: relative;
 }
 
 .tnp-extension-premium-box:hover, .tnp-extension-free-box:hover, .tnp-integration-box:hover {
-    background-color: #232C35;
+    /*background-color: #232C35;*/
+    background-color: #2B343F;
     box-shadow: 1px 1px 15px #222B36;
 }
 

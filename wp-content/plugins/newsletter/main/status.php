@@ -4,6 +4,8 @@
 
 defined('ABSPATH') || exit;
 
+wp_enqueue_script('tnp-chart');
+
 include_once NEWSLETTER_INCLUDES_DIR . '/controls.php';
 $controls = new NewsletterControls();
 
@@ -158,9 +160,11 @@ function tnp_status_print_flag($condition) {
 }
 
 class TNP_WPDB extends wpdb {
+
     public function get_table_charset($table) {
         return parent::get_table_charset($table);
     }
+
 }
 
 $tnp_wpdb = new TNP_WPDB(DB_USER, DB_PASSWORD, DB_NAME, DB_HOST);
@@ -240,14 +244,22 @@ $tnp_wpdb = new TNP_WPDB(DB_USER, DB_PASSWORD, DB_NAME, DB_HOST);
                     </tr>
                     <?php
                     // Send calls stats
-                    $send_calls = get_option('newsletter_diagnostic_send_calls', array());
-                    if (count($send_calls)) {
+                    $send_calls = get_option('newsletter_diagnostic_send_calls', []);
+                    $chart_data = [];
+                    $chart_labels = [];
+                    $chart_labels_idx = 1;
+                    $chart_point_labels = [];
+                    if ($send_calls) {
                         $send_max = 0;
                         $send_min = PHP_INT_MAX;
                         $send_total_time = 0;
                         $send_total_emails = 0;
                         $send_completed = 0;
                         for ($i = 0; $i < count($send_calls); $i++) {
+                            // 0 - batch start time
+                            // 1 - batch end time
+                            // 2 - number of sent email in this batch
+                            // 3 - 0: prematurely stopped, 1: completed
                             if (empty($send_calls[$i][2]))
                                 continue;
 
@@ -255,6 +267,10 @@ $tnp_wpdb = new TNP_WPDB(DB_USER, DB_PASSWORD, DB_NAME, DB_HOST);
                             $send_total_time += $delta;
                             $send_total_emails += $send_calls[$i][2];
                             $send_mean = $delta / $send_calls[$i][2];
+                            $chart_data[] = $send_mean;
+                            $chart_labels[] = $chart_labels_idx;
+                            $chart_labels_idx++;
+                            $chart_point_labels[] = 'Emails: ' . $send_calls[$i][2];
                             if ($send_min > $send_mean) {
                                 $send_min = $send_mean;
                             }
@@ -268,7 +284,7 @@ $tnp_wpdb = new TNP_WPDB(DB_USER, DB_PASSWORD, DB_NAME, DB_HOST);
                         $send_mean = $send_total_time / $send_total_emails;
                         ?>
                         <tr>
-                            <td>
+                            <td id="tnp-speed">
                                 Send details
                             </td>
                             <td>
@@ -295,6 +311,31 @@ $tnp_wpdb = new TNP_WPDB(DB_USER, DB_PASSWORD, DB_NAME, DB_HOST);
                                 Runs prematurely interrupted: <?php echo sprintf("%.2f", (count($send_calls) - $send_completed) * 100.0 / count($send_calls)) ?>%<br>
                                 <br>
                                 <?php $controls->button_reset('reset_send_stats') ?>
+
+                                <canvas id="tnp-send-chart" style="width: 550px; height: 150px"></canvas>
+                                <script>
+                                    jQuery(function () {
+                                        var sendChartData = {
+                                            labels: <?php echo json_encode($chart_labels) ?>,
+                                            datasets: [
+                                                {
+                                                    label: "Batch Average Time",
+                                                    data: <?php echo json_encode($chart_data) ?>,
+                                                    borderColor: '#2980b9',
+                                                    fill: false
+                                                }]
+                                        };
+                                        var sendChartConfig = {
+                                            type: "line",
+                                            data: sendChartData,
+                                            options: {
+                                                responsive: false,
+                                                maintainAspectRatio: false
+                                            }
+                                        };
+                                        new Chart('tnp-send-chart', sendChartConfig);
+                                    });
+                                </script>
                             </td>
                         </tr>
                     <?php } else { ?>
@@ -567,17 +608,18 @@ $tnp_wpdb = new TNP_WPDB(DB_USER, DB_PASSWORD, DB_NAME, DB_HOST);
 
 
                     <?php
-                    $res = true;
+                    $res = 0;
                     $response = wp_remote_post(home_url('/') . '?na=test');
                     if (is_wp_error($response)) {
-                        $res = false;
+                        $res = 1;
                         $message = $response->get_error_message();
-                    } else {
-                        if (wp_remote_retrieve_response_code($response) != 200) {
-                            $res = false;
+                    } else if (wp_remote_retrieve_response_code($response) != 200) {
+                            $res = 1;
                             $message = wp_remote_retrieve_response_message($response);
-                        }
+                    } else if (wp_remote_retrieve_body($response) !== 'ok') {
+                        $res = 2;
                     }
+                    
                     ?>
                     <tr>
                         <td>
@@ -591,11 +633,12 @@ $tnp_wpdb = new TNP_WPDB(DB_USER, DB_PASSWORD, DB_NAME, DB_HOST);
                             <?php } ?>
                         </td>
                         <td>
-                            <?php if (!$res) { ?>
+                            <?php if ($res === 1) { ?>
                                 The blog is not responding to Newsletter URLs: ask the provider or your IT consultant to check this problem. Report the URL and error below<br>
                                 Error: <?php echo esc_html($message) ?><br>
-                            <?php } else { ?>
-
+                            <?php } else if ($res === 2) { ?>
+                                The response does not contain the "ok" text: probably a caching/optimization plugin or a server configuration is forcing the blog to ignore
+                                the URL's query string. Reported that to your system administrator.
                             <?php } ?>
                             Url: <?php echo esc_html(home_url('/') . '?na=test') ?><br>
                         </td>
@@ -1129,18 +1172,18 @@ $tnp_wpdb = new TNP_WPDB(DB_USER, DB_PASSWORD, DB_NAME, DB_HOST);
                             <?php } ?>
                         </td>
                     </tr>
-                    
+
                     <tr>
                         <td>get_table_charset()</td>
                         <td>
-                          
+
                         </td>
                         <td>
-                            <?php echo esc_html(NEWSLETTER_USERS_TABLE), ': ', esc_html($tnp_wpdb->get_table_charset(NEWSLETTER_USERS_TABLE))?>
+                            <?php echo esc_html(NEWSLETTER_USERS_TABLE), ': ', esc_html($tnp_wpdb->get_table_charset(NEWSLETTER_USERS_TABLE)) ?>
                         </td>
                     </tr>
-                    
-                    
+
+
 
 
                     <?php

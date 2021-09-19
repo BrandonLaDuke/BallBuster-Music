@@ -354,10 +354,8 @@ if ($email['status'] != 'sent') {
                     </div>
 
                     <?php $controls->text('subject', null, 'Subject'); ?>
-                    <a href="#" class="tnp-suggest-button" onclick="tnp_suggest_subject(); return false;"><?php _e('Get ideas', 'newsletter') ?></a>
-                    <!--
-                    <a href="#" class="tnp-suggest-button" onclick="tnp_emoji(); return false;"><?php _e('Insert emoji', 'newsletter') ?></a>
-                    -->
+                    &nbsp;&nbsp;&nbsp;
+                    <i class="far fa-lightbulb" data-tnp-modal-target="#subject-ideas-modal" style="color: #fff; font-size: 24px"></i>
                 </div>
 
                 <div class="tnp-one-third">

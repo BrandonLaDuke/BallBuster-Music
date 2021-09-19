@@ -12,6 +12,14 @@ img.aligncenter{display:block;margin:0 auto;}
 
 @media screen and (max-width: 525px) {
 
+    .pt-1 {
+        padding-top: 15px!important;
+    }
+
+    .pb-1 {
+        padding-bottom: 15px!important;
+    }
+
     /* ALLOWS FOR FLUID TABLES */
     table[class="wrapper"]{
         width:100% !important;
@@ -28,6 +36,11 @@ img.aligncenter{display:block;margin:0 auto;}
     img[class="responsive"] {
         max-width: 100%!important;
     } 
+
+    img[class="fluid"] {
+        max-width: 100%!important;
+        width: 100%;
+    }
 
     .block {
         display: block;

@@ -144,8 +144,7 @@ class NewsletterSubscription extends NewsletterModule {
 
                 $captcha = !empty($options_antibot['captcha']);
 
-
-                if (!empty($options_antibot['disabled']) || $this->antibot_form_check($captcha)) {
+                if (!empty($_GET['_wp_amp_action_xhr_converted']) || !empty($options_antibot['disabled']) || $this->antibot_form_check($captcha)) {
 
                     $subscription = $this->build_subscription();
 
@@ -1636,6 +1635,16 @@ class NewsletterSubscription extends NewsletterModule {
         if (isset($options_profile['sex_status']) && $options_profile['sex_status'] == 2) {
             $buffer .= $this->shortcode_newsletter_field(['name' => 'gender']);
         }
+        
+        // Extra profile fields
+        for ($i = 1; $i <= NEWSLETTER_PROFILE_MAX; $i++) {
+            // Not for subscription form
+            if ($options_profile['profile_' . $i . '_status'] != 2) {
+                continue;
+            }
+
+            $buffer .= $this->shortcode_newsletter_field(['name' => 'profile', 'number' => $i]);
+        }
 
         $tmp = '';
         $lists = $this->get_lists_for_subscription($language);
@@ -1651,15 +1660,7 @@ class NewsletterSubscription extends NewsletterModule {
             $buffer .= $this->shortcode_newsletter_field(['name' => 'lists']);
         }
 
-        // Extra profile fields
-        for ($i = 1; $i <= NEWSLETTER_PROFILE_MAX; $i++) {
-            // Not for subscription form
-            if ($options_profile['profile_' . $i . '_status'] != 2) {
-                continue;
-            }
-
-            $buffer .= $this->shortcode_newsletter_field(['name' => 'profile', 'number' => $i]);
-        }
+        
 
         // Deprecated
         $extra = apply_filters('newsletter_subscription_extra', array());

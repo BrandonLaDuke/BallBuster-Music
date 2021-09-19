@@ -25,7 +25,7 @@ class NewsletterLogger {
         else
             $this->level = (int) get_option('newsletter_log_level', self::ERROR);
 
-        $secret = get_option('newsletter_logger_secret');
+        $secret = get_option('newsletter_logger_secret', '');
         if (strlen($secret) < 8) {
             $secret = NewsletterModule::get_token(8);
             update_option('newsletter_logger_secret', $secret);
@@ -73,8 +73,9 @@ class NewsletterLogger {
             /* @var $text WP_Error */
             $text = $text->get_error_message() . ' (' . $text->get_error_code() . ') - ' . print_r($text->get_error_data(), true);
         } else {
-            if (is_array($text) || is_object($text))
+            if (is_array($text) || is_object($text)) {
                 $text = print_r($text, true);
+            }
         }
 
         $memory_limit = size_format(wp_convert_hr_to_bytes(ini_get('memory_limit')));

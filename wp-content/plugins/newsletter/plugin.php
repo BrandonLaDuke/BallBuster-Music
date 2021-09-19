@@ -4,13 +4,15 @@
   Plugin Name: Newsletter
   Plugin URI: https://www.thenewsletterplugin.com/plugins/newsletter
   Description: Newsletter is a cool plugin to create your own subscriber list, to send newsletters, to build your business. <strong>Before update give a look to <a href="https://www.thenewsletterplugin.com/category/release">this page</a> to know what's changed.</strong>
-  Version: 7.2.1
+  Version: 7.2.7
   Author: Stefano Lissa & The Newsletter Team
   Author URI: https://www.thenewsletterplugin.com
   Disclaimer: Use at your own risk. No warranty expressed or implied is provided.
   Text Domain: newsletter
   License: GPLv2 or later
-
+  Requires at least: 4.6
+  Requires PHP: 5.6
+ 
   Copyright 2009-2021 The Newsletter Team (email: info@thenewsletterplugin.com, web: https://www.thenewsletterplugin.com)
 
   Newsletter is free software: you can redistribute it and/or modify
@@ -35,7 +37,7 @@ if (version_compare(phpversion(), '5.6', '<')) {
     return;
 }
 
-define('NEWSLETTER_VERSION', '7.2.1');
+define('NEWSLETTER_VERSION', '7.2.7');
 
 global $newsletter, $wpdb;
 
@@ -64,13 +66,11 @@ if (!defined('NEWSLETTER_STATS_TABLE'))
 if (!defined('NEWSLETTER_SENT_TABLE'))
     define('NEWSLETTER_SENT_TABLE', $wpdb->prefix . 'newsletter_sent');
 
-// Do not use basename(dirname()) since on activation the plugin is sandboxed inside a function
 define('NEWSLETTER_SLUG', 'newsletter');
 
 define('NEWSLETTER_DIR', __DIR__);
 define('NEWSLETTER_INCLUDES_DIR', __DIR__ . '/includes');
 
-// Almost obsolete but the first two must be kept for compatibility with modules
 define('NEWSLETTER_URL', WP_PLUGIN_URL . '/newsletter');
 
 if (!defined('NEWSLETTER_LIST_MAX'))
@@ -113,7 +113,6 @@ class Newsletter extends NewsletterModule {
     var $theme_max_posts;
     var $theme_excluded_categories; // comma separated ids (eventually negative to exclude)
     var $theme_posts; // WP_Query object
-    // Secret key to create a unique log file name (and may be other)
     var $action = '';
 
     /**  @var Newsletter */
@@ -199,6 +198,15 @@ class Newsletter extends NewsletterModule {
             });
         }
     }
+    
+    function hook_plugins_loaded() {
+
+        do_action('newsletter_loaded', NEWSLETTER_VERSION);
+
+        if (function_exists('load_plugin_textdomain')) {
+            load_plugin_textdomain('newsletter', false, plugin_basename(dirname(__FILE__)) . '/languages');
+        }
+    }    
 
     function hook_init() {
         global $wpdb;
@@ -260,6 +268,7 @@ class Newsletter extends NewsletterModule {
         }
 
         if ($this->action == 'test') {
+            // This response is tested, do not change it!
             echo 'ok';
             die();
         }
@@ -461,8 +470,9 @@ class Newsletter extends NewsletterModule {
     }
 
     function admin_menu() {
-        if (!$this->is_allowed())
+        if (!$this->is_allowed()) {
             return;
+        }
 
         add_menu_page('Newsletter', 'Newsletter', 'exist', 'newsletter_main_index', '', plugins_url('newsletter') . '/images/menu-icon.png', '30.333');
 
@@ -471,7 +481,9 @@ class Newsletter extends NewsletterModule {
 
         if (current_user_can('administrator')) {
             $this->add_menu_page('welcome', __('Welcome', 'newsletter'));
-            $this->add_menu_page('main', __('Settings and More', 'newsletter'));
+            $this->add_menu_page('main', __('Settings', 'newsletter'));
+            
+            // Pages not on menu
             $this->add_admin_page('smtp', 'SMTP');
             $this->add_admin_page('status', __('Status', 'newsletter'));
             $this->add_admin_page('delivery', __('Delivery Diagnostic', 'newsletter'));
@@ -532,14 +544,22 @@ class Newsletter extends NewsletterModule {
         wp_enqueue_script('jquery-ui-tooltip');
         wp_enqueue_script('jquery-ui-draggable');
         wp_enqueue_media();
+        
+        wp_enqueue_script('tnp-admin', $newsletter_url . '/admin/admin.js', ['jquery'], NEWSLETTER_VERSION);
 
         wp_enqueue_style('tnp-select2', $newsletter_url . '/vendor/select2/css/select2.min.css', [], NEWSLETTER_VERSION);
-        wp_enqueue_script('tnp-select2', $newsletter_url . '/vendor/select2/js/select2.min.js', [], NEWSLETTER_VERSION);
+        wp_enqueue_script('tnp-select2', $newsletter_url . '/vendor/select2/js/select2.min.js', ['jquery'], NEWSLETTER_VERSION);
 
+        wp_enqueue_style('tnp-modal', $newsletter_url . '/admin/modal.css', [], NEWSLETTER_VERSION);
+        wp_enqueue_script('tnp-modal', $newsletter_url . '/admin/modal.js', ['jquery'], NEWSLETTER_VERSION, true);
+        
+        wp_enqueue_style('tnp-toast', $newsletter_url . '/admin/toast.css', [], NEWSLETTER_VERSION);
+        wp_enqueue_script('tnp-toast', $newsletter_url . '/admin/toast.js', ['jquery'], NEWSLETTER_VERSION);
+        
         wp_enqueue_style('tnp-admin-font', 'https://use.typekit.net/jlj2wjy.css');
         wp_enqueue_style('tnp-admin-fontawesome', $newsletter_url . '/vendor/fa/css/all.min.css', [], NEWSLETTER_VERSION);
         wp_enqueue_style('tnp-admin-jquery-ui', $newsletter_url . '/vendor/jquery-ui/jquery-ui.min.css', [], NEWSLETTER_VERSION);
-        wp_enqueue_style('tnp-admin', $newsletter_url . '/admin.css', [], NEWSLETTER_VERSION);
+        wp_enqueue_style('tnp-admin', $newsletter_url . '/admin/admin.css', [], NEWSLETTER_VERSION);
         wp_enqueue_style('tnp-admin-dropdown', $newsletter_url . '/css/dropdown.css', [], NEWSLETTER_VERSION);
         wp_enqueue_style('tnp-admin-tabs', $newsletter_url . '/css/tabs.css', [], NEWSLETTER_VERSION);
         wp_enqueue_style('tnp-admin-controls', $newsletter_url . '/css/controls.css', [], NEWSLETTER_VERSION);
@@ -548,11 +568,9 @@ class Newsletter extends NewsletterModule {
         wp_enqueue_style('tnp-admin-extensions', $newsletter_url . '/css/extensions.css', [], NEWSLETTER_VERSION);
 
         if (NEWSLETTER_DARK) {
-            wp_enqueue_style('tnp-admin-dark', $newsletter_url . '/admin-dark.css', ['tnp-admin'], NEWSLETTER_VERSION);
+            wp_enqueue_style('tnp-admin-dark', $newsletter_url . '/admin/admin-dark.css', ['tnp-admin'], NEWSLETTER_VERSION);
             wp_enqueue_style('tnp-admin-controls-dark', $newsletter_url . '/css/controls-dark.css', ['tnp-admin-controls'], NEWSLETTER_VERSION);
         }
-
-        wp_enqueue_script('tnp-admin', $newsletter_url . '/admin.js', ['jquery'], NEWSLETTER_VERSION);
 
         $translations_array = array(
             'save_to_update_counter' => __('Save the newsletter to update the counter!', 'newsletter')
@@ -835,10 +853,10 @@ class Newsletter extends NewsletterModule {
             $result = false;
         }
 
-        //Se non sono in test e ho completato con successo delle spedizioni aggiorno i dati di diagnostica
-        if (!$test && $count > 0) {
+        // Stats only for newsletter with enough emails in a batch (we exclude the Autoresponder since it send one email per call)
+        if (!$test && !$supplied_users && $count > 5) {
 
-            NewsletterStatistics::instance()->reset_stats_time($email->id);
+            
 
             $send_calls = get_option('newsletter_diagnostic_send_calls', []);
             $send_calls[] = array($start_time, $end_time, $count, $result);
@@ -847,6 +865,11 @@ class Newsletter extends NewsletterModule {
                 array_shift($send_calls);
 
             update_option('newsletter_diagnostic_send_calls', $send_calls, false);
+        }
+        
+        // Cached general statistics are reset
+        if (!$test) {
+            NewsletterStatistics::instance()->reset_stats_time($email->id);
         }
 
         $this->logger->info(__METHOD__ . '> End run for email ' . $email->id);
@@ -871,7 +894,6 @@ class Newsletter extends NewsletterModule {
         $edited_email->options = $email->options;
         $edited_email->options['error_message'] = $message;
 
-        //If id is present the save function update only the provided fields?!
         $this->save_email($edited_email);
     }
 
@@ -1024,12 +1046,14 @@ class Newsletter extends NewsletterModule {
      * @return NewsletterMailer
      */
     function get_mailer() {
-        //die('get mailer');
-        if ($this->mailer)
+        if ($this->mailer) {
             return $this->mailer;
+        }
 
         do_action('newsletter_register_mailer');
+        
         if (!$this->mailer) {
+            // Compatibility
             $smtp = $this->get_options('smtp');
             if (!empty($smtp['enabled'])) {
                 $this->mailer = new NewsletterDefaultSMTPMailer($smtp);
@@ -1102,15 +1126,6 @@ class Newsletter extends NewsletterModule {
         $r = $mailer->send($mailer_message);
 
         return !is_wp_error($r);
-    }
-
-    /**
-     * Returns the SMTP options filtered so extensions can change them.
-     */
-    function get_smtp_options() {
-        $smtp_options = $this->get_options('smtp');
-        $smtp_options = apply_filters('newsletter_smtp', $smtp_options);
-        return $smtp_options;
     }
 
     function hook_deactivate() {
@@ -1299,14 +1314,7 @@ class Newsletter extends NewsletterModule {
         delete_transient('tnp_extensions_json');
     }
 
-    function hook_plugins_loaded() {
 
-        do_action('newsletter_loaded', NEWSLETTER_VERSION);
-
-        if (function_exists('load_plugin_textdomain')) {
-            load_plugin_textdomain('newsletter', false, plugin_basename(dirname(__FILE__)) . '/languages');
-        }
-    }
 
     var $panels = array();
 

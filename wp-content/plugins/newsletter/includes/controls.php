@@ -275,7 +275,7 @@ class NewsletterControls {
     );
 
     /**
-     * 
+     *
      * @param array $options
      */
     function __construct($options = null) {
@@ -313,6 +313,11 @@ class NewsletterControls {
                     if ($type === 'array') {
                         if (!isset($this->data[$name]))
                             $this->data[$name] = [];
+                    }
+                    if ($type === 'checkbox') {
+                        if (!isset($this->data[$name])) {
+                            $this->data[$name] = 0;
+                        }
                     }
                 }
             }
@@ -857,7 +862,7 @@ class NewsletterControls {
 
     /**
      * General button.
-     * 
+     *
      * @param type $action
      * @param type $label
      * @param type $attrs
@@ -1240,7 +1245,7 @@ class NewsletterControls {
 
     /** A list of all lists defined each one with a checkbox to select it. An array
      * of ID of all checked lists is submitted.
-     * 
+     *
      * @param string $name
      */
     function lists($name = 'lists') {
@@ -1905,7 +1910,7 @@ tnp_controls_init();
      * @param string $label
      */
     static function help($url, $label = '') {
-        echo '<a href="', $url, '" target="_blank" title="', esc_attr($label), '"><i class="fas fa-question-circle-o"></i></a>';
+        echo '<a href="', $url, '" target="_blank" title="', esc_attr($label), '"><i class="fas fa-question-circle"></i></a>';
     }
 
     static function idea($url, $label = '') {
@@ -2031,8 +2036,14 @@ tnp_controls_init();
      * Adds the fields used by the composer (version 2) in the page form.
      */
     function composer_fields_v2($name = 'message') {
+        
+        // The composer, on saving, fills in those fields
         $this->hidden('subject');
         $this->hidden('message');
+        $this->hidden('options_preheader');
+
+        //$preheader_value = $this->get_value('options_preheader');
+	//    echo '<input name="options[preheader]" id="options-preheader" type="hidden" value="', esc_attr($preheader_value), '">';
     }
 
     function composer_load_v2($show_subject = false, $show_test = true, $context_type = '') {
@@ -2040,24 +2051,23 @@ tnp_controls_init();
         global $tnpc_show_subject;
         $tnpc_show_subject = $show_subject;
 
-        echo "<link href='" . plugins_url('newsletter') . "/emails/tnp-composer/_css/newsletter-builder-v2.css?ver=" . NEWSLETTER_VERSION . "' rel='stylesheet' type='text/css'>";
+        echo "<link href='", plugins_url('newsletter'), "/emails/tnp-composer/_css/newsletter-builder-v2.css?ver=" . NEWSLETTER_VERSION . "' rel='stylesheet' type='text/css'>";
 
-        wp_enqueue_style('tnp-modal-style', plugins_url('newsletter') . '/emails/tnp-composer/_css/tnp-modal.css', array(), NEWSLETTER_VERSION);
-        wp_enqueue_style('tnp-toast-style', plugins_url('newsletter') . '/emails/tnp-composer/_css/tnp-toast.css', array(), NEWSLETTER_VERSION);
         $controls = $this;
         include NEWSLETTER_DIR . '/emails/tnp-composer/index-v2.php';
     }
 
     function subject($name) {
         $value = $this->get_value($name);
-        echo '<div style="position: relative"><input size="80" id="options-', esc_attr($name), '" style="font-size: 14px; font-family: monospace;" name="options[' . esc_attr($name) . ']" type="text" placeholder="" value="';
+        // Leave the ID with this prefix!
+        echo '<div style="position: relative"><input size="80" id="options-subject-', esc_attr($name), '" name="options[' . esc_attr($name) . ']" type="text" placeholder="" value="';
         echo esc_attr($value);
         echo '">';
-        echo '&nbsp;<i class="far fa-lightbulb" onclick="tnp_suggest_subject()"></i>';
+        echo '&nbsp;<i class="far fa-lightbulb tnp-suggest-subject" data-tnp-modal-target="#subject-ideas-modal"></i>';
 
-//        echo '<img src="', NEWSLETTER_URL, '/images/subject/android.png" style="position: absolute; left: 330px; top: 22px; display: block">';
-//        echo '<img src="', NEWSLETTER_URL, '/images/subject/iphone.png" style="position: absolute; left: 380px; top: 22px; display: block">';
-//        echo '<img src="', NEWSLETTER_URL, '/images/subject/gmail.png" style="position: absolute; left: 400px; top: 22px; display: block">';
+        echo '<img src="', plugins_url('newsletter'), '/images/subject/android.png" style="position: absolute; width: 16px; left: 330px; top: 25px; display: block; opacity: 0">';
+        echo '<img src="', plugins_url('newsletter'), '/images/subject/iphone.png" style="position: absolute; width: 16px; left: 380px; top: 25px; display: block; opacity: 0">';
+        //echo '<img src="', NEWSLETTER_URL, '/images/subject/gmail.png" style="position: absolute; width: 16px; left: 400px; top: 25px; display: block; opacity: 0">';
         echo '</div>';
     }
 

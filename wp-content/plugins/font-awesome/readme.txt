@@ -1,9 +1,9 @@
 === Font Awesome ===
 Contributors: fontawesome, mlwilkerson, robmadole, frrrances, deathnfudge
-Stable tag: 4.0.1
+Stable tag: 4.0.4
 Tags: font, awesome, fontawesome, font-awesome, icon, svg, webfont
 Requires at least: 4.7
-Tested up to: 5.8
+Tested up to: 5.8.1
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -160,6 +160,34 @@ You can get more information about all the available settings and troubleshootin
 
 
 == Changelog ==
+
+= 4.0.4 =
+* FIX: add hash values to JavaScript chunk file names to resolve the problem where
+  sometimes an old cached version of a JavaScript file would load in the browser
+  instead of the intended updated one. This caused some users to see a blank
+  settings page after upgrading from a previous version of the plugin.
+
+= 4.0.3 =
+* FIX: When in the Classic Editor in WordPress 5, do not load block editor
+  script dependencies that assign to the global wp.editor object.
+  This prevents problems with other plugins on the page that may depend on that
+  global.
+* FIX: When in the Classic Editor where multiple editor instances are present,
+  ensure that the Add Font Awesome media button on each is wired up to
+  load the Icon Chooser on click, not just those buttons that were on the page
+  at the time this plugin's initialization code is run.
+
+= 4.0.2 =
+* FIX: re-enable the Icon Chooser in the Classic Editor on WordPress 4.
+* FIX: in some cases where the path to the plugin was a non-standard
+  location--such as when installed via composer--the admin settings page and
+  Icon Chooser would not load correctly. Fixed.
+* FIX: the global version of the lodash JavaScript library was again being overwritten
+  by the version used by this plugin. Fixed.
+* The Icon Chooser's integration with the Block Editor (Gutenberg) has been disabled
+  for Wordpress 5.0, 5.1, 5.2, and 5.3, due to incomptabile JavaScript libraries.
+  All other features of the plugin work normally on those versions, including
+  Icon Chooser integration with the Classic Editor.
 
 = 4.0.1 =
 * FIX: In scenarios where both Gutenberg (Block) and TinyMCE (Classic)
