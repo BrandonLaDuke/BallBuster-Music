@@ -1,7 +1,7 @@
 /*
 Theme Name: BallBuster Music
 Text Domain: BallBuster Music
-Version: 4.0
+Version: 4.1
 Requires at least: 4.7
 Requires PHP: 5.2.4
 Description: This is the new incarnation of the BallBuster website evolution.
@@ -2400,14 +2400,24 @@ body.template-full-width [class*="wp-block"].alignfull:not(.has-background) [cla
 }
 .three-equal-grid {
   display: grid;
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 15px auto;
   background-color: #000;
   /* TODO: Template Areas */
 }
 .f-category {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 15px auto;
+}
+.partners-2 {
+  max-width:1200px;
+}
+@media screen (min-width:1400px) {
+  .f-category,
+  .three-equal-grid,
+  .partners-2 {
+    max-width: 1400px;
+  }
 }
 #sonic-grid hr,
 .three-equal-grid hr {
@@ -2419,7 +2429,7 @@ body.template-full-width [class*="wp-block"].alignfull:not(.has-background) [cla
 .sonic-featured-post .featured-post-thumbnail {
   z-index: 1;
   width: 100%;
-  height: 400px;
+  height: 300px;
   border-radius: 1rem;
   background-position: center;
   background-size: cover;
@@ -2452,7 +2462,7 @@ body.template-full-width [class*="wp-block"].alignfull:not(.has-background) [cla
   border-radius: 5px;
 }
 .sonic-featured-post h1 {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   background-color: #f00;
   color: #000;
   border-radius: 1rem;
@@ -2484,7 +2494,7 @@ body.template-full-width [class*="wp-block"].alignfull:not(.has-background) [cla
   display: inline-block;
 }
 .latest-posts h2 {
-  font-size: 2rem;
+  font-size: 1.6rem;
   color: #fff;
   margin: 1rem auto;
   transition: 500ms ease color;
@@ -2714,7 +2724,7 @@ background: linear-gradient(to right, #93291E, #ED213A); /* W3C, IE 10+/ Edge, F
 }
 .wide-feature a {
   display: block;
-  padding-top: 30rem;
+  padding-top: 25rem;
   padding-bottom: 5rem;
   text-decoration: none;
 }
@@ -2867,7 +2877,6 @@ background: linear-gradient(to right, #93291E, #ED213A); /* W3C, IE 10+/ Edge, F
   .partners-2 {
     display: flex;
     justify-content: space-between;
-    max-width: 1400px;
     margin: 5rem auto 0 auto;
     overflow-x: scroll;
   }
@@ -2886,14 +2895,15 @@ background: linear-gradient(to right, #93291E, #ED213A); /* W3C, IE 10+/ Edge, F
 @media (min-width: 1100px) {
   #sonic-grid {
     grid-template-columns: 1fr 500px 1fr;
+    max-width: 1200px;
   }
 }
-@media (min-width:1200px) {
+@media (min-width:1400px) {
   #sonic-grid {
     grid-template-columns: 1fr 600px 1fr;
   }
 }
-@media (min-width:1400px) {
+@media (min-width:1500px) {
   #sonic-grid {
     grid-template-columns: 1fr 2fr 1fr;
   }
@@ -2946,7 +2956,7 @@ body:not(.singular) main > article:first-of-type {
 
 /*	9. Post: Single
 /* -------------------------------------------------------------------------- */
-/* Default Template: Featured Image ------------------------------- */
+/* Default Template: Featured Image ----------------------------------------- */
 .featured-image-default {
   height: calc((1080 / 1920) * 100vw);
   width: 100%;
@@ -2957,17 +2967,17 @@ body:not(.singular) main > article:first-of-type {
   .single-post-view {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    max-width: 1400px;
+    max-width: 1200px;
     margin: auto;
   }
   #site-content .featured-image-default {
     margin: 1rem;
     border-radius: 1rem;
     width: calc(100% - 2rem);
-    height: calc((1080 / 1920) * 75vw);
+    height: calc((1080 / 1920) * 50vw);
   }
 }
-@media (min-width:1400px) {
+@media (min-width:1500px) {
  .max-cover-post-width {
    display: grid;
    max-width: 1400px;
@@ -2980,6 +2990,11 @@ body:not(.singular) main > article:first-of-type {
   }
   #site-content .featured-image-default {
     height: calc((1080 / 1920) * 1050px);
+  }
+}
+@media (min-width:1500px) {
+  .single-post-view {
+    max-width: 1400px;
   }
 }
 
@@ -3421,7 +3436,7 @@ h2.entry-title {
     display: grid;
     grid-template-columns: 300px auto;
     gap:1rem;
-    max-width: 1400px;
+    max-width: 1200px;
     margin: auto;
   }
   .author-page-posts .post a {
@@ -3430,6 +3445,11 @@ h2.entry-title {
     width: auto;
     display: inline-block;
     vertical-align: top;
+  }
+}
+@media (min-width:1500px) {
+  .author-grid {
+    max-width: 1400px;
   }
 }
 

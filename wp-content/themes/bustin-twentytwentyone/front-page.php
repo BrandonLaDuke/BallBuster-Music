@@ -129,7 +129,7 @@ if ( $query->have_posts() ) {
     </div>
     <div class="hit-counter">
       <h2>You are visitor<h2>
-      <?php echo do_shortcode("[srs_total_visitors]"); ?>
+      <?php echo do_shortcode("[srs_total_pageViews]"); ?>
     </div>
   </div>
 
