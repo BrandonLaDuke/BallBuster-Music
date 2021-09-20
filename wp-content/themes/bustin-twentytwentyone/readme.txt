@@ -12,7 +12,10 @@ This is the new incarnation of the BallBuster website evolution.
 
 == Changelog ==
 
-= 4.1 =
+= 4.0.2 =
+* Released: September 20, 2021
+
+= 4.0.1 =
 * Released: September 19, 2021
 
 = 4.0 =

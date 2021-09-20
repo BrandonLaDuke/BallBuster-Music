@@ -1,7 +1,7 @@
 /*
 Theme Name: BallBuster Music
 Text Domain: BallBuster Music
-Version: 4.1
+Version: 4.0.2
 Requires at least: 4.7
 Requires PHP: 5.2.4
 Description: This is the new incarnation of the BallBuster website evolution.
@@ -2967,6 +2967,7 @@ body:not(.singular) main > article:first-of-type {
   .single-post-view {
     display: grid;
     grid-template-columns: 2fr 1fr;
+    gap: 1rem;
     max-width: 1200px;
     margin: auto;
   }
