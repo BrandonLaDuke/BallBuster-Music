@@ -1,7 +1,7 @@
 /*
 Theme Name: BallBuster Music
 Text Domain: BallBuster Music
-Version: 4.0.2
+Version: 4.0.3
 Requires at least: 4.7
 Requires PHP: 5.2.4
 Description: This is the new incarnation of the BallBuster website evolution.
@@ -469,7 +469,7 @@ hr.styled-separator::after {
 
 a {
 	color: #cd2653;
-	text-decoration: underline;
+	text-decoration: none;
 }
 
 a:hover,
@@ -2509,6 +2509,7 @@ body.template-full-width [class*="wp-block"].alignfull:not(.has-background) [cla
 .latest-posts a {
   text-decoration: none;
 }
+
 .stream-1 .post a {
   display: inline-flex;
   text-decoration: none;
@@ -3049,6 +3050,7 @@ body:not(.singular) main > article:first-of-type {
 	flex-wrap: wrap;
 	margin: -0.5rem 0 0 -1rem;
 }
+
 
 .entry-categories a {
 	border-bottom: 0.15rem solid currentColor;
@@ -4300,9 +4302,19 @@ figure.wp-block-table.is-style-stripes {
 	text-align: center;
 }
 
+.entry-content a {
+  background-image: linear-gradient(90deg, red, yellow);
+  background-size: 0% 3px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  transition: background-size 300ms ease;
+  text-decoration: none;
+  font-weight: 900;
+}
+
 .entry-content a:hover,
 .entry-content a:focus {
-	text-decoration: none;
+	background-size: 100% 3px;
 }
 
 .entry-content p,
