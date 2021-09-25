@@ -1,5 +1,5 @@
 <div class="latest-posts related-posts round-tn">
-  
+
   <div class="toggle-wrapper search-toggle-wrapper dt-st-wp" data-toggle-target=".search-modal" data-toggle-body-class="showing-search-modal" data-set-focus=".search-modal .search-field" aria-expanded="false">
     <button class="toggle search-toggle desktop-search-toggle" data-toggle-target=".search-modal" data-toggle-body-class="showing-search-modal" data-set-focus=".search-modal .search-field" aria-expanded="false">
       <span class="toggle-inner">
@@ -49,5 +49,7 @@ if( $my_query->have_posts() ) {
   wp_reset_postdata();
   ?>
   <!--  End Repeating Post Loop  -->
-
+  <div class="slider">
+    <?php echo do_shortcode( "[nextcodeslider id='1']" ); ?>
+  </div>
 </div>
