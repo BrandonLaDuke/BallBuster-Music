@@ -108,24 +108,34 @@ if ( $query->have_posts() ) {
 
 
   <div class="social-area">
+
+    <div class="toggle-wrapper search-toggle-wrapper dt-st-wp" data-toggle-target=".search-modal" data-toggle-body-class="showing-search-modal" data-set-focus=".search-modal .search-field" aria-expanded="false">
+      <button class="toggle search-toggle desktop-search-toggle" data-toggle-target=".search-modal" data-toggle-body-class="showing-search-modal" data-set-focus=".search-modal .search-field" aria-expanded="false">
+        <span class="toggle-inner">
+          <?php twentytwenty_the_theme_svg( 'search' ); ?>
+          <span class="toggle-text-desktop" style="font-size: 2rem; color: #fff; padding: 0 0 0 1rem;"><?php _e( 'Search', 'twentytwenty' ); ?></span>
+        </span>
+      </button><!-- .search-toggle -->
+    </div>
+
     <div class="newsletter">
       <p><span>Join the Newsletter</span> and stay up to date on all things BallBuster Music!</p>
       <a href="#">Subscribe ></a>
     </div>
     <br>
     <div class="our-partners">
-      <a href=""><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/07/mvd.jpeg" alt="MVD"></a>
-      <a href=""><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/07/metalblade.jpeg" alt="metalblade"></a>
-      <a href=""><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/07/SME-logo-on-black-background.jpg" alt="SME"></a>
-      <a href=""><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/07/roadrunnerheader.jpg" alt="Roadrunner records"></a>
-      <a href=""><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/07/century-media.jpeg" alt="Centry Media"></a>
-      <a href=""><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/07/labels-columbia.jpeg" alt="Columbia Records"></a>
-      <a href=""><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/07/legacy.jpeg" alt="Legacy"></a>
-      <a href=""><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/07/cleopatra.jpeg" alt="cleopatra"></a>
-      <a href=""><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/07/acetate.jpeg" alt="Acetate"></a>
-      <a href=""><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/07/puresteel.jpg" alt="puresteel"></a>
-      <a href=""><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/07/deadlinemusic.jpg" alt="Deadline Music Records"></a>
-      <a href=""><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/08/theprp.jpeg" alt="ThePRP"></a>
+      <a href="http://mvdaudio.com/"><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/07/mvd.jpeg" alt="MVD"></a>
+      <a href="https://www.metalblade.com/"><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/07/metalblade.jpeg" alt="metalblade"></a>
+      <a href="https://www.sonymusic.com/"><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/07/SME-logo-on-black-background.jpg" alt="SME"></a>
+      <a href="https://www.elektramusicgroup.com/roadrunnerrecords"><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/07/roadrunnerheader.jpg" alt="Roadrunner records"></a>
+      <a href="https://www.centurymedia.com/"><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/07/century-media.jpeg" alt="Centry Media"></a>
+      <a href="http://www.columbiarecords.com/"><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/07/labels-columbia.jpeg" alt="Columbia Records"></a>
+      <a href="https://www.legacyrecordings.com/"><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/07/legacy.jpeg" alt="Legacy"></a>
+      <a href="http://cleorecs.com/home/"><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/07/cleopatra.jpeg" alt="cleopatra"></a>
+      <a href="https://acetate.com/"><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/07/acetate.jpeg" alt="Acetate"></a>
+      <a href="https://www.puresteel-records.com/"><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/07/puresteel.jpg" alt="puresteel"></a>
+      <a href="https://cleorecs.com/store/product-category/record-label/deadline/"><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/07/deadlinemusic.jpg" alt="Deadline Music Records"></a>
+      <a href="https://www.theprp.com/"><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/08/theprp.jpeg" alt="ThePRP"></a>
     </div>
     <div class="hit-counter">
       <h2>You are visitor<h2>
@@ -478,13 +488,13 @@ if ( $query->have_posts() ) {
 </div>
 
 <div class="our-partners partners-2">
-  <a href=""><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/08/kerrang.jpeg.webp" alt="kerrang"></a>
-  <a href=""><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/08/bravewords.jpeg.webp" alt="Bravewords"></a>
-  <a href=""><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/08/mhf.png.webp" alt="MHF"></a>
-  <a href=""><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/08/tps-logo.webp" alt="The Punk Site"></a>
-  <a href=""><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/08/mk.jpeg.webp" alt="MK"></a>
-  <a href=""><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/08/ds-mag.jpeg" alt="Distorted Sound Mag"></a>
-  <a href=""><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/08/blabbermouth-1.jpeg.webp" alt="BlabberMouth.net"></a>
+  <a href="https://www.kerrang.com/"><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/08/kerrang.jpeg.webp" alt="kerrang"></a>
+  <a href="https://bravewords.com/"><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/08/bravewords.jpeg.webp" alt="Bravewords"></a>
+  <a href="https://mhf-mag.com/"><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/08/mhf.png.webp" alt="MHF"></a>
+  <a href="https://www.thepunksite.com/"><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/08/tps-logo.webp" alt="The Punk Site"></a>
+  <a href="https://www.metalkaoz.com/"><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/08/mk.jpeg.webp" alt="MK"></a>
+  <a href="https://distortedsoundmag.com/"><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/08/ds-mag.jpeg" alt="Distorted Sound Mag"></a>
+  <a href="https://www.blabbermouth.net/"><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/08/blabbermouth-1.jpeg.webp" alt="BlabberMouth.net"></a>
 </div>
 
 <div class="f-category">

@@ -1542,12 +1542,26 @@ body:not(.enable-search-modal) .site-logo img {
 }
 
 /* Search Toggle ----------------------------- */
-
+.dt-st-wp {
+  cursor: pointer;
+  background-color: #121212;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+@media (min-width:1000px) {
+  .mobile-toggle {
+    display: none;
+  }
+}
 .search-toggle {
 	position: absolute;
 	bottom: 0;
 	left: 0;
 	top: 0;
+}
+.desktop-search-toggle {
+  position: relative;
 }
 
 .search-toggle .toggle-icon,
@@ -1555,6 +1569,7 @@ body:not(.enable-search-modal) .site-logo img {
 	height: 2.5rem;
 	max-width: 2.3rem;
 	width: 2.3rem;
+  fill: #fff;
 }
 
 /* Navigation Toggle ------------------------- */
@@ -1589,8 +1604,9 @@ ul.primary-menu {
 	font-weight: 500;
 	letter-spacing: -0.0277em;
 	flex-wrap: wrap;
-	justify-content: flex-end;
-	margin: -0.8rem 0 0 -1.6rem;
+	justify-content: center;
+  gap: 3rem;
+	/* margin: -0.8rem 0 0 -1.6rem; */
 }
 
 .primary-menu .icon {
@@ -1626,11 +1642,12 @@ ul.primary-menu {
 	font-size: inherit;
 	line-height: 1.25;
 	position: relative;
+  color: #ff0;
 }
 
-.primary-menu > li {
+/* .primary-menu > li {
 	margin: 0.8rem 0 0 1.6rem;
-}
+} */
 
 .primary-menu > li.menu-item-has-children > a {
 	padding-right: 2rem;
@@ -1648,12 +1665,6 @@ ul.primary-menu {
 	text-decoration: none;
 	word-break: normal;
 	word-wrap: normal;
-}
-
-.primary-menu a:hover,
-.primary-menu a:focus,
-.primary-menu .current_page_ancestor {
-	text-decoration: underline;
 }
 
 .primary-menu li.current-menu-item > a,
@@ -1694,6 +1705,10 @@ ul.primary-menu {
 	transform: translateY(0);
 	transition: opacity 0.15s linear, transform 0.15s linear;
 }
+body:not(.overlay-header) .primary-menu ul {
+    background-color: #000000 !important;
+    border: 1px dashed #f00;
+}
 
 .primary-menu ul::before,
 .primary-menu ul::after {
@@ -1716,13 +1731,21 @@ ul.primary-menu {
 }
 
 .primary-menu ul a {
-	background: transparent;
 	border: none;
 	color: inherit;
 	display: block;
 	padding: 1rem 2rem;
-	transition: background-color 0.15s linear;
+  background-image: linear-gradient(90deg, red, yellow);
+  background-size: 0% 3px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  transition: background-size 300ms ease;
 	width: 100%;
+}
+
+.primary-menu ul a:hover,
+.primary-menu ul a:focus {
+	background-size: 100% 3px;
 }
 
 .primary-menu ul li.menu-item-has-children > a {
@@ -3092,6 +3115,9 @@ h2.entry-title {
 	letter-spacing: -0.0315em;
 	line-height: 1.4;
 }
+.related-posts {
+  margin-top: 1rem;
+}
 .related-posts hr {
   margin: 1rem 0;
 }
@@ -3366,9 +3392,23 @@ h2.entry-title {
   padding: 0.5rem;
   font-size: 2rem;
 }
+.authorProfile .author-links a:hover {
+  color: #ff0;
+}
 .authorProfile p {
   margin-top: 1rem;
   grid-area: a-bio;
+}
+.authorProfile p a {
+  color: #ff0;
+  background-image: linear-gradient(90deg, red, yellow);
+  background-size: 0% 3px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  transition: background-size 300ms ease;
+}
+.authorProfile p a:hover {
+  background-size: 100% 3px;
 }
 .author-grid {
   margin: auto 2rem;
@@ -5709,7 +5749,7 @@ a.to-the-top > * {
 	}
 
 	.site-logo img {
-		max-height: 9rem;
+		max-height: 15rem;
 		transition: height 0.15s linear, width 0.15s linear, max-height 0.15s linear;
 	}
 
@@ -5796,7 +5836,6 @@ a.to-the-top > * {
 	.search-modal .search-field {
 		border: none;
 		font-size: 3.2rem;
-		height: 14rem;
 	}
 
 	.search-modal .search-field::-moz-placeholder {
@@ -6500,16 +6539,16 @@ a.to-the-top > * {
 
 	.header-inner {
 		align-items: center;
-		display: flex;
-		justify-content: space-between;
+		display: grid;
+		/* justify-content: space-between; */
 		padding: 2.8rem 0;
 	}
 
 	.header-titles-wrapper {
-		margin-right: 4rem;
-		max-width: 50%;
+		/* margin-right: 4rem; */
+		/* max-width: 50%; */
 		padding: 0;
-		text-align: left;
+		text-align: center;
 	}
 
 	.header-titles {
@@ -6521,9 +6560,8 @@ a.to-the-top > * {
 	}
 
 	.header-titles .site-title,
-	.header-titles .site-logo,
 	.header-titles .site-description {
-		margin: 1rem 0 0 2.4rem;
+		margin: 1rem 0 0 0;
 	}
 
 	.wp-custom-logo .header-titles {
@@ -6948,6 +6986,9 @@ a.to-the-top > * {
     margin: -95px 0 0 0;
     width: 100%;
   }
+  .singular .entry-header-inner-default-pigshit {
+    margin: -110px 0 0 0;
+  }
   .entry-categories-default {
     text-align: left;
     margin: 1rem;
@@ -7009,13 +7050,13 @@ a.to-the-top > * {
 
 	/* PRIMARY MENU */
 
-	ul.primary-menu {
+	/* ul.primary-menu {
 		margin: -0.8rem 0 0 -2.5rem;
-	}
+	} */
 
-	.primary-menu > li {
+	/* .primary-menu > li {
 		margin: 0.8rem 0 0 2.5rem;
-	}
+	} */
 
 	/* HEADER TOGGLES */
 

@@ -149,7 +149,7 @@
 						if ( true === $enable_header_search ) {
 							?>
 
-							<div class="toggle-wrapper search-toggle-wrapper">
+							<div class="toggle-wrapper search-toggle-wrapper mobile-toggle">
 
 								<button class="toggle search-toggle desktop-search-toggle" data-toggle-target=".search-modal" data-toggle-body-class="showing-search-modal" data-set-focus=".search-modal .search-field" aria-expanded="false">
 									<span class="toggle-inner">
