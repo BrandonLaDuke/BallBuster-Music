@@ -49,7 +49,5 @@ if( $my_query->have_posts() ) {
   wp_reset_postdata();
   ?>
   <!--  End Repeating Post Loop  -->
-  <div class="slider">
-    <?php echo do_shortcode( "[nextcodeslider id='1']" ); ?>
-  </div>
+  
 </div>
