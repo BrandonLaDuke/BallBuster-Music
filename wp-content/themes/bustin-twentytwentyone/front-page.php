@@ -137,10 +137,10 @@ if ( $query->have_posts() ) {
       <a href="https://cleorecs.com/store/product-category/record-label/deadline/"><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/07/deadlinemusic.jpg" alt="Deadline Music Records"></a>
       <a href="https://www.theprp.com/"><img src="https://www.ballbustermusic.com/wp-content/uploads/2021/08/theprp.jpeg" alt="ThePRP"></a>
     </div>
-    <div class="hit-counter">
+    <!-- <div class="hit-counter">
       <h2>You are visitor<h2>
-      <?php echo do_shortcode("[srs_total_pageViews]"); ?>
-    </div>
+      <?php // echo do_shortcode("[srs_total_pageViews]"); ?>
+    </div> -->
   </div>
 
 

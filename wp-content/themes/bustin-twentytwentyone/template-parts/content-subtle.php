@@ -87,7 +87,7 @@
 
 		<div class="comments-wrapper section-inner">
 
-			<?php echo do_shortcode('[easy-facebook-comments]'); ?>
+			<div class="fb-comments" data-href="<?php echo get_the_permalink(); ?>" data-width="100%" data-numposts="20" data-colorscheme="dark"></div>
 
 		</div><!-- .comments-wrapper -->
 

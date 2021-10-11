@@ -50,6 +50,13 @@
 
 			</footer><!-- #site-footer -->
 
+      <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+      <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+
 		<?php wp_footer(); ?>
 
 	</body>
