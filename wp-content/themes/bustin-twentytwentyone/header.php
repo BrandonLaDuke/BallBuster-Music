@@ -66,7 +66,7 @@
 
 			<div class="header-inner section-inner">
 
-				<div class="header-titles-wrapper">
+				<div class="header-titles-wrapper header-background-img">
 
 					<?php
 
@@ -100,6 +100,7 @@
 
 					</div><!-- .header-titles -->
 
+
 					<button class="toggle nav-toggle mobile-nav-toggle" data-toggle-target=".menu-modal"  data-toggle-body-class="showing-menu-modal" aria-expanded="false" data-set-focus=".close-nav-toggle">
 						<span class="toggle-inner">
 							<span class="toggle-icon">
@@ -109,6 +110,10 @@
 						</span>
 					</button><!-- .nav-toggle -->
 
+          <!-- <div class="tag-line">
+            <span>Tons upon tons of views since 1998</span>
+          </div> -->
+
 				</div><!-- .header-titles-wrapper -->
 
 				<div class="header-navigation-wrapper">
@@ -116,6 +121,8 @@
 					<?php
 					if ( has_nav_menu( 'primary' ) || ! has_nav_menu( 'expanded' ) ) {
 						?>
+
+
 
 							<nav class="primary-menu-wrapper" aria-label="<?php esc_attr_e( 'Horizontal', 'twentytwenty' ); ?>" role="navigation">
 
@@ -149,6 +156,8 @@
 								</ul>
 
 							</nav><!-- .primary-menu-wrapper -->
+
+
 
 						<?php
 					}

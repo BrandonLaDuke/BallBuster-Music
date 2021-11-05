@@ -1,7 +1,7 @@
 /*
 Theme Name: BallBuster Music
 Text Domain: BallBuster Music
-Version: 4.0.3
+Version: 4.0.9
 Requires at least: 4.7
 Requires PHP: 5.2.4
 Description: This is the new incarnation of the BallBuster website evolution.
@@ -52,6 +52,7 @@ License version 2.0 (http://www.gnu.org/licenses/gpl-2.0.html)
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
 @import url('https://fonts.cdnfonts.com/css/stencil-gothic-be');
 @import url('https://fonts.cdnfonts.com/css/bloodyslime');
+@import url('https://fonts.googleapis.com/css2?family=Yellowtail&display=swap');
 
 html,
 body {
@@ -155,6 +156,9 @@ body {
 
 #site-content {
 	overflow: hidden;
+}
+hr {
+  border-color: #ff0 !important;
 }
 
 
@@ -1378,6 +1382,7 @@ ul.social-icons li {
 /* Header Titles ----------------------------- */
 
 .header-titles-wrapper {
+  position: relative;
 	align-items: center;
 	display: flex;
 	justify-content: center;
@@ -1604,9 +1609,9 @@ ul.primary-menu {
 	font-weight: 500;
 	letter-spacing: -0.0277em;
 	flex-wrap: wrap;
-	justify-content: center;
+	justify-content: space-between;
+  width: 100%;
   gap: 3rem;
-	/* margin: -0.8rem 0 0 -1.6rem; */
 }
 
 .primary-menu .icon {
@@ -2464,8 +2469,8 @@ body.template-full-width [class*="wp-block"].alignfull:not(.has-background) [cla
   position: relative;
   z-index: 1;
   font-size: 1.4rem;
-  margin: 0 10px;
-  margin-top: -66px;
+  margin: 1rem 1rem 0 1rem;;
+
 }
 .tri-grid-imgfix .post-text-block {
   margin-top: -50px;
@@ -2481,7 +2486,7 @@ body.template-full-width [class*="wp-block"].alignfull:not(.has-background) [cla
   font-size: 1.5rem;
   padding: 5px;
   background-color: #000;
-  color: #fff;
+  color: #fff !important;
   border-radius: 5px;
 }
 .sonic-featured-post h1 {
@@ -2501,9 +2506,12 @@ body.template-full-width [class*="wp-block"].alignfull:not(.has-background) [cla
   background-color: #000;
   color: #f00;
 }
-.post-text-block span,
+.post-text-block span{
+  color: #fff;
+  font-size: 1.65rem;
+}
 .post-text-block div {
-  color: #888;
+  color: #ccc;
 }
 .latest-posts > .post > a {
   display: flex;
@@ -2511,11 +2519,7 @@ body.template-full-width [class*="wp-block"].alignfull:not(.has-background) [cla
 #sonic-grid .latest-posts > .post a .latest-right {
   padding-left: 1rem;
 }
-.post-text-block a .author-title {
-  font-size: 1.4rem;
-  color: #888;
-  display: inline-block;
-}
+
 .latest-posts h2 {
   font-size: 1.6rem;
   color: #fff;
@@ -3151,7 +3155,7 @@ h2.entry-title {
 	color: #d4d4d4!important;
 	display: flex;
 	flex-wrap: wrap;
-	font-size: 1.5rem;
+	font-size: 1.7rem;
 	font-weight: 500;
 	list-style: none;
 	margin: -1rem 0 0 -2rem;
@@ -5749,7 +5753,7 @@ a.to-the-top > * {
 	}
 
 	.site-logo img {
-		max-height: 15rem;
+		max-height: 17rem;
 		transition: height 0.15s linear, width 0.15s linear, max-height 0.15s linear;
 	}
 
@@ -5960,12 +5964,12 @@ a.to-the-top > * {
 	}
 
 	.post-meta {
-		font-size: 1.6rem;
+		font-size: 1.8rem;
 		margin: -1.4rem 0 0 -3rem;
 	}
 
 	.post-meta li {
-		margin: 1.4rem 0 0 3rem;
+		margin: 0 0 0 3rem;
 		max-width: calc(100% - 3rem);
 	}
 
@@ -6725,6 +6729,11 @@ a.to-the-top > * {
 
 	/* FEATURED MEDIA */
 
+  .header-background-img {
+    width: 100%;
+    margin: 0;
+  }
+
 	.featured-media figcaption {
 		width: 100%;
 	}
@@ -7423,4 +7432,60 @@ a.to-the-top > * {
   .entry-header-inner-video .entry-title {
     font-size: 4rem;
   }
+}
+
+body:not(.overlay-header) .primary-menu > li > a, body:not(.overlay-header) .primary-menu > li > .icon {
+	color:#f00;
+  font-weight: 500;
+  letter-spacing: 1.2px;
+  text-shadow: #ff0 1px 1px;
+}
+
+@media (min-width: 1000px) {
+  .header-navigation-wrapper {
+  	padding: 1rem;
+    /* background-color: #000; */
+  }
+  .header-background-img {
+    border-top: 4px solid red;
+    border-bottom: 4px solid red;
+    background-image: url('https://www.ballbustermusic.com/wp-content/uploads/2021/10/fistonfire.jpeg');
+    background-position:center;
+    background-repeat: repeat;
+    background-size: contain;
+    background-blend-mode: hard-light;
+    padding-top: 0px;
+  }
+  .header-inner {
+    padding-bottom: 0;
+  }
+	.site-logo {
+		margin:5rem 0;
+	}
+  .tag-line {
+    position: absolute;
+    right: 42px;
+    top:89%;
+    font-family: 'Yellowtail', cursive;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 2.65rem;
+    color: #ffffff;
+    text-shadow: 2px 2px 1px #f00;
+  }
+  .header-navigation-wrapper {
+    border-bottom: 4px solid red;
+  }
+
+}
+.hit-counter {
+	display: none !important;
+}
+
+/* Fix for Share This Buttons */
+#st-1 .st-total {
+	color: #ff0 !important;
+}
+#st-1.st-justified {
+	padding-bottom: 2rem !important;
 }

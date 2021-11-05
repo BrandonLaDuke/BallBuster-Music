@@ -13,14 +13,17 @@
       $query->the_post(); ?>
   <article class="sonic-featured-post">
     <a href="<?php the_permalink() ?>">
-    <div class="featured-post-thumbnail" style="background-image:url(<?php the_post_thumbnail_url(); ?>)"></div>
-    <div class="post-text-block">
-
 
       <span class="cat-label"><?php $category = get_the_category();
             echo $category[0]->cat_name; ?></span>
             <br>
-      <h1><?php the_title(); ?></h1>
+    <h1><?php the_title(); ?></h1>
+    <div class="featured-post-thumbnail" style="background-image:url(<?php the_post_thumbnail_url(); ?>)"></div>
+    <div class="post-text-block">
+
+
+
+
       <div><?php the_excerpt(); ?></div>
       <span>by <?php the_author(); ?> · </span>
       <span><?php the_date(); ?></span>

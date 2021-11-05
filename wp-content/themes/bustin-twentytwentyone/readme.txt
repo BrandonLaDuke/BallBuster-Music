@@ -12,20 +12,28 @@ This is the new incarnation of the BallBuster website evolution.
 
 == Changelog ==
 
-= 4.0.3 =
-* Released: September 25, 2021
+= 4.0.9 =
+* Released: November 4, 2021
+* Changed html in front-page.php
+* Updated new post-style and header style.css
+* updated header in header.php
+* https://www.ballbustermusic.com/
 
-= 4.0.2 =
-* Released: September 20, 2021
+= 4.0.8 =
+* Released: November 2, 2021
 
-= 4.0.1 =
-* Released: September 19, 2021
+= 4.0.7 =
+* Released: November 1, 2021
 
-= 4.0 =
-* Released: September 18, 2021
+= 4.0.6 =
+* Released: October 25, 2021
 
+= 4.0.5 =
+* Released: October 11, 2021
 
-Initial release
+= 4.0.4 =
+* Released: October 10, 2021
+
 
 == Copyright ==
 
